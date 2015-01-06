@@ -1,0 +1,149 @@
+//= Position
+.position(@position: relative) {
+    position: @position;
+}
+
+//= Float
+.float(@float: left) {
+    float: @float;
+}
+.clearfix() {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+//= Box sizing
+.box-sizing(@boxmodel: border-box) {
+    -webkit-box-sizing: @boxmodel;
+    -moz-box-sizing:    @boxmodel;
+    box-sizing:         @boxmodel;
+}
+
+//= Transition
+.transition(@transition, @duration:0.2s, @ease:ease-in-out) {
+    -webkit-transition: @transition @duration @ease;
+    -moz-transition:    @transition @duration @ease;
+    -o-transition:      @transition @duration @ease;
+    transition:         @transition @duration @ease;
+}
+.transition-transform(@transition) {
+    -webkit-transition: -webkit-transform @transition;
+    -moz-transition:    -moz-transform @transition;
+    -o-transition:      -o-transform @transition;
+    transition:         transform @transition;
+}
+.translate(@y) {
+    -webkit-transform: translateY(@y);
+    -ms-transform:     translateY(@y);
+    transform:         translateY(@y);
+}
+
+//= Drop shadow
+.box-shadow(@horizontal:0, @vertical:0, @blur:2px, @opacity: 0.1) {
+    -webkit-box-shadow: @horizontal @vertical @blur rgba(0, 0, 0, @opacity);
+    -moz-box-shadow:    @horizontal @vertical @blur rgba(0, 0, 0, @opacity);
+    box-shadow:         @horizontal @vertical @blur rgba(0, 0, 0, @opacity);
+}
+
+//= Opacity
+.opacity(@opacity: 1;) {
+    opacity: @opacity;
+    // IE8 filter
+    @opacity-ie: (@opacity * 100);
+    filter: ~"alpha(opacity=@{opacity-ie})";
+}
+.border-opacity(@color, @opacity) {
+    @rgba-color: rgba(red(@color), green(@color), blue(@color), @opacity);
+    border: 1px solid @rgba-color;
+}
+
+//= Box Model
+.margin(@margin: 0) {
+    margin: @margin;
+}
+.margin-left(@margin: 0) {
+    margin-left: @margin;
+}
+.margin-right(@margin: 0) {
+    margin-right: @margin;
+}
+.margin-top(@margin: 0) {
+    margin-top: @margin;
+}
+.margin-bottom(@margin: 0) {
+    margin-bottom: @margin;
+}
+.padding(@padding: 0) {
+    padding: @padding;
+}
+.padding-left(@padding: 0) {
+    padding-left: @padding;
+}
+.padding-right(@padding: 0) {
+    padding-right: @padding;
+}
+.padding-top(@padding: 0) {
+    padding-top: @padding;
+}
+.padding-bottom(@padding: 0) {
+    padding-bottom: @padding;
+}
+.base-left(@base-unit) {
+    left: @base-unit;
+}
+.base-right(@base-unit) {
+    right: @base-unit;
+}
+.base-top(@base-unit) {
+    top: @base-unit;
+}
+.base-bottom(@base-unit) {
+    bottom: @base-unit;
+}
+.width(@base-width: 100%) {
+    width: @base-width;
+}
+
+//= Bootstrap Grid System
+.fluid (@fluidGridColumnWidth, @fluidGridGutterWidth) {
+    .spanX (@index) when (@index > 0) {
+        .span@{index} { .span(@index); }
+        .spanX(@index - 1);
+    }
+    .spanX (0) {}
+    .span (@columns) {
+        width: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1));
+        *width: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) - (.5 / @gridRowWidth * 100 * 1%);
+    }
+
+    .row {
+        .width;
+        .clearfix();
+        [class*="col-md-"] {
+            display: block;
+            min-height: 30px;
+            .box-sizing(border-box);
+            .width;
+            .float;
+            .margin-left(@fluidGridGutterWidth);
+            *margin-left: @fluidGridGutterWidth - (.5 / @gridRowWidth * 100 * 1%);
+        }
+        [class*="col-md-"]:first-child {
+            .margin-left(0);
+        }
+
+        // Space grid-sized controls properly if multiple per line
+        .controls-row [class*="col-md-"] + [class*="col-md-"] {
+            .margin-left(@fluidGridGutterWidth);
+        }
+
+        // generate .spanX and .offsetX
+        .spanX (@gridColumns);
+    }
+}

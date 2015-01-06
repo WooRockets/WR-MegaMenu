@@ -1,0 +1,22 @@
+//= Color
+@white-color:             #fff;
+
+@black-color:             #000;
+
+@gray-dark:               darken(@gray, 20%);
+@gray:                    #555;
+
+//= Container Size
+@container-desktop:       960px;
+@container-tablets:       768px;
+
+@padding-base:            25px;
+
+//= Bootstrap Grid System
+@gridColumns:             12;
+@gridColumnWidth:         60px;
+@gridGutterWidth:         20px;
+@gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
+
+@fluidGridColumnWidth:    percentage(@gridColumnWidth/@gridRowWidth);
+@fluidGridGutterWidth:    percentage(@gridGutterWidth/@gridRowWidth);

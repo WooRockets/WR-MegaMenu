@@ -1,0 +1,292 @@
+/**
+ * @version    $Id$
+ * @package    WR MegaMenu
+ * @author     WooRockets Team <support@woorockets.com>
+ * @copyright  Copyright (C) 2014 WooRockets.com All Rights Reserved.
+ * @license    GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Websites: http://www.woorockets.com
+ * Technical Support:  Feedback - http://www.woorockets.com
+ */
+
+/*------   Custom css for "Add custom css" feature   ------*/
+#top-btn-actions div{
+    margin-left: 10px;
+}
+
+#wr-mm-custom-css-box .jsn-items-list-container {
+    width: 100%;
+    display: inline-block;
+}
+
+#wr-mm-custom-css-box .css-files-container {
+    height: 120px;
+    border: 1px solid #ccc;
+}
+
+#wr-mm-custom-css-box .items-list-edit-content textarea {
+    height: 120px;
+}
+
+#wr-mm-custom-css-box .control-label > i {
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+#wr-mm-custom-css-box #custom-css {
+    height: 250px;
+    width: 100%;
+}
+
+#wr-mm-custom-css-box .CodeMirror {
+    border: #ccc solid 1px;
+}
+
+.jsn-master {
+    font-size: 12px;
+    line-height: 1.5em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.jsn-master .ui-dialog .ui-dialog-titlebar-close {
+    display: none;
+}
+.jsn-bootstrap3 .input-group .form-control {
+    z-index: 0;
+}
+.jsn-bootstrap3 #wr_option_tab {
+    padding: 0.2em 0 0;
+}
+.jsn-bootstrap3 .ui-sortable .ui-state-highlight {
+    background: none repeat scroll 0 0 #FCF8E3;
+    border: 1px dashed #CCCCCC;
+    margin: 0;
+    padding: 10px;
+    height: 32px;
+}
+.jsn-bootstrap3 #wr_editor_tabs.nav > li > a:hover, .jsn-bootstrap3 .nav > li > a:focus {
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
+}
+.jsn-bootstrap3 input[type="text"], .jsn-bootstrap3 input[type="password"], .jsn-bootstrap3 input[type="number"], .jsn-bootstrap3 input[type="search"], .jsn-bootstrap3 input[type="email"], .jsn-bootstrap3 input[type="url"] {
+    -moz-box-sizing: border-box;
+}
+.jsn-bootstrap3 #content-html, .jsn-bootstrap3 #content-tmce {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.jsn-bootstrap3 #content-html:before, .jsn-bootstrap3 #content-tmce:before,
+.jsn-bootstrap3 #content-html:after, .jsn-bootstrap3 #content-tmce:after {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.jsn-bootstrap3 {
+    font-size: 12px;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    line-height: 1.5em;
+}
+.jsn-bootstrap3 .thumbnail {
+    margin-bottom: 0px;
+}
+.jsn-bootstrap3 .jsn-tabs .form-group textarea{
+    height: auto !important;
+}
+.jsn-bootstrap3 .nav-tabs > li {
+    margin: 0 0 -1px;
+}
+.jsn-bootstrap3 .form-horizontal #appearance .control-group {
+    margin-bottom: 15px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.jsn-bootstrap3 .form-horizontal .control-group .control-label {
+    text-align: right;
+}
+.jsn-bootstrap3 .nav-tabs > .active > a,.jsn-bootstrap3 .nav-tabs > .active > a:hover,.jsn-bootstrap3 .nav-tabs > .active > a:focus {
+    color: #333333;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.jsn-bootstrap3 .clearbreak {
+    clear: both;
+}
+.jsn-bootstrap3 .btn [class^="icon-"],.jsn-bootstrap3 .btn [class*=" icon-"],.jsn-bootstrap3 .ui-tabs-nav [class^="icon-"],.jsn-bootstrap3 .ui-tabs-nav [class*=" icon-"],.jsn-bootstrap3 .jsn-add-more [class^="icon-"],.jsn-bootstrap3 .jsn-add-more [class*="-icon-"], .jsn-bootstrap3 #toolbar-custom [class^="icon-"], .jsn-bootstrap3 #toolbar-custom [class*=" icon-"],.jsn-bootstrap3 .jsn-reset-search [class^="icon-"],.jsn-bootstrap3 .jsn-reset-search [class*=" icon-"], #jsn_is_showcase_tabs ul.ui-widget-header [class^="icon-"], #jsn_is_showcase_tabs ul.ui-widget-header [class*=" icon-"] {
+    font-size: 12px;
+}
+.jsn-bootstrap3 #wr_editor_tabs {
+    display:table;
+    border-bottom: none;
+}
+.jsn-bootstrap3 #page-custom-css, .jsn-bootstrap3 #page-template {
+    position: relative;
+    z-index: 1;
+}
+.jsn-bootstrap3 #form-mm-design-content {
+    border: 1px solid #CCCCCC;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    padding: 15px;
+}
+.jsn-bootstrap3 .tab-content {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #FFFFFF;
+    border-color: -moz-use-text-color #DDDDDD #DDDDDD;
+    border-image: none;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+.jsn-bootstrap3 .wr-editor-tab-content {
+    border-top: 1px solid #DDDDDD;
+}
+.jsn-bootstrap3 .jsn-add-more {
+    background: #FFFFFF;
+    border: 1px dashed #BBBBBB;
+    border-radius: 3px;
+    font-size: 11px;
+    color: #888888;
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.1s ease-in-out 0s;
+}
+.jsn-bootstrap3 .jsn-add-more:hover {
+    border-style: solid;
+    color: #333333;
+    text-decoration: none;
+}
+.jsn-bootstrap3 #jsn-add-container {
+    background: #428BCA;
+    border: none;
+    color: #FFFFFF;
+}
+.jsn-bootstrap3 #jsn-add-container:hover {
+    background: #3276B1;
+}
+.jsn-bootstrap3 .jsn-handle-drag {
+    background: none repeat scroll 0 0 #EFEFEF;
+    cursor: move;
+}
+.jsn-bootstrap3 .jsn-iconbar a {
+    color: #333333;
+    display: inline-block;
+    margin: 0;
+    padding: 5px;
+}
+.jsn-bootstrap3 .jsn-iconbar a i {
+    font-size: 14px;
+    min-height: 16px;
+    min-width: 16px;
+    opacity: 0.8;
+    text-align: center;
+}
+.jsn-bootstrap3 .jsn-iconbar a:hover i {
+    opacity: 1;
+}
+.jsn-bootstrap3 [class^="icon-"], .jsn-master .jsn-bootstrap3 [class*=" icon-"] {
+    background-image: none !important;
+    font-size: 14px;
+}
+.jsn-bootstrap3 .btn [class^="icon-"],.jsn-bootstrap3 .btn [class*=" icon-"],.jsn-bootstrap3 .ui-tabs-nav [class^="icon-"],.jsn-bootstrap3 .ui-tabs-nav [class*=" icon-"],.jsn-bootstrap3 .jsn-add-more [class^="icon-"],.jsn-bootstrap3 .jsn-add-more [class*="-icon-"], .jsn-bootstrap3 #toolbar-custom [class^="icon-"], .jsn-bootstrap3 #toolbar-custom [class*=" icon-"], .jsn-bootstrap3 .jsn-reset-search [class^="icon-"],.jsn-bootstrap3 .jsn-reset-search [class*=" icon-"],.jsn-bootstrap3 #jsn_is_showcase_tabs ul.ui-widget-header [class^="icon-"],.jsn-bootstrap3  #jsn_is_showcase_tabs ul.ui-widget-header [class*=" icon-"] {
+    font-size: 12px;
+}
+.jsn-bootstrap3 .jsn-handle-drag.jsn-horizontal {
+    height: 40px;
+    margin-bottom: 10px;
+}
+.jsn-bootstrap3 .jsn-row-container {
+    clear:both;
+    content: "";
+    display: table;
+    line-height: 0;
+    margin-bottom: 15px;
+    position: relative;
+}
+.jsn-bootstrap3 .jsn-row-container > .jsn-iconbar {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #DDDDDD #DDDDDD #DDDDDD -moz-use-text-color;
+    border-image: none;
+    border-radius: 0 4px 4px 0;
+    border-style: solid solid solid none;
+    border-width: 1px 1px 1px medium;
+    padding: 5px;
+    position: absolute;
+    right: -44px;
+    top: 0;
+}
+.jsn-bootstrap3 .jsn-row-container > .jsn-iconbar.left {
+    border-left: 1px solid #DDDDDD;
+    border-radius: 4px 0 0 4px;
+    border-right: medium none;
+    left: -44px;
+    width: 37px;
+}
+.jsn-bootstrap3 .jsn-iconbar.jsn-vertical a {
+    display: block;
+}
+.jsn-bootstrap3 .jsn-iconbar-trigger {
+    position: relative;
+}
+.jsn-bootstrap3 .jsn-iconbar-trigger .jsn-iconbar {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 5px;
+    z-index: 100;
+}
+.jsn-bootstrap3 .jsn-iconbar-trigger.ui-state-edit .jsn-iconbar,
+.jsn-bootstrap3 .jsn-iconbar-trigger:hover .jsn-iconbar {
+    display: block;
+}
+.jsn-bootstrap3 .jsn-iconbar a {
+    display: inline-block;
+    margin: 0;
+    padding: 5px;
+}
+.jsn-bootstrap3 .jsn-iconbar a.disabled {
+    color: #CCCCCC;
+}
+.jsn-bootstrap3 .ui-sortable .ui-state-default {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid rgba(0, 0, 0, 0);
+    box-shadow: none;
+    position: relative;
+    list-style: none;
+    padding: 10px;
+}
+.jsn-bootstrap3 .ui-sortable .ui-state-default:hover, .jsn-master .ui-sortable .ui-state-default.ui-state-edit {
+    background-color: #F4F4F4;
+    border: 1px solid #ddd;
+    cursor: move;
+    -webkit-transition: background 0.3s ease-out 0s;
+    -moz-transition:    background 0.3s ease-out 0s;
+    transition:         background 0.3s ease-out 0s;
+}
+.jsn-bootstrap3 .ui-sortable .ui-state-default:hover .jsn-iconbar {
+    background-color: #F4F4F4;
+    margin-top: 5px;
+}
+.jsn-bootstrap3 .ui-sortable .ui-state-default.ui-state-edit {
+    cursor: default;
+}
+.jsn-bootstrap3 .ui-sortable .ui-state-default.ui-sortable-helper {
+    box-shadow: 0 3px 5px 0 #999999;
+}
+.jsn-bootstrap3 .jsn-element-container {
+    min-height: 50px;
+}
+.jsn-master .wr-modal-content-editor .controls {
+    width: 102% !important;
+}

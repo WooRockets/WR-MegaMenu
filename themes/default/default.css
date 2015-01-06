@@ -1,0 +1,58 @@
+/**
+ * @version    $Id$
+ * @package    WR MegaMenu
+ * @author     WooRockets Team <support@woorockets.com>
+ * @copyright  Copyright (C) 2014 WooRockets.com All Rights Reserved.
+ * @license    GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Websites: http://www.woorockets.com
+ * Technical Support:  Feedback - http://www.woorockets.com
+ */
+
+.wr-megamenu-container {
+    background: #000;
+}
+.wr-megamenu-container ul.wr-mega-menu ul.sub-menu,
+.wr-megamenu-inner {
+    background-color: #ffffff;
+}
+
+.wr-megamenu-container ul.wr-mega-menu ul.sub-menu a {
+    color: #222222;
+}
+
+.wr-megamenu-container ul.wr-mega-menu ul.sub-menu a:hover {
+    color: #5aae29;
+}
+
+.wr-megamenu-container ul.wr-mega-menu ul.sub-menu li:hover {
+    background: #41a62a;
+}
+.wr-megamenu-container .widget a {
+    color: #000;
+}
+
+.wr-megamenu-container a:hover {
+    color: #41a62a;
+}
+
+.wr-megamenu-container .current_page_item > a,
+.wr-megamenu-container .current_page_ancestor > a,
+.wr-megamenu-container .current-menu-item > a,
+.wr-megamenu-container .current-menu-ancestor > a {
+    color: #55d737;
+    font-weight: 900;
+}
+.wr-megamenu-inner {
+   color: #000;
+}
+
+.submenu-items a {
+    color: #000;
+}
+.wr-element-submenu .submenu-items a {
+    color: #777777;
+}
+.wr-element-submenu .caption {
+    background: #474747;
+}

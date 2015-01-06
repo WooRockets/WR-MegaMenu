@@ -1,0 +1,268 @@
+//= Import Variables & Mixins
+@import "variables.less";
+@import "mixins.less";
+
+/* General WR_Megamenu */
+.wr-megamenu-container {
+    .width;
+    .box-sizing;
+    .clearfix;
+    .float;
+    ul.wr-mega-menu  {
+        list-style: none;
+        z-index: 9999;
+        .float;
+        .margin;
+        .padding;
+        .position;
+        .width;
+        li {
+            list-style: none;
+            &:hover > ul.sub-menu {
+                visibility: visible;
+                .opacity;
+                .translate(0);
+            }
+        }
+        > li {
+            height: auto;
+            .position;
+            .float;
+        }
+        > li.wr-megamenu-item > a.menu-item-link {
+            display: block;
+            .padding(10px 15px);
+            .transition(background);
+        }
+        li.menu-item-has-children {
+            > a:after,
+            i.wr-arrow-down {
+                display: none;
+            }
+        }
+        li.megaitem-widget {
+            .position(static);
+            .itmm-widget-container ul {
+                background: none;
+                display: block;      
+                .position;
+                .base-left(0);
+                .width;
+                li {
+                    display: block;
+                    .margin;
+                    .padding;
+                    a {
+                        display: block;
+                        .margin(0 -10px);
+                        .padding(10px);
+                        .width;
+                    }
+                }
+            }
+        }
+        ul.sub-menu {
+            background-color: @white-color;
+            border-color: #ddd;
+            border-style: solid;
+            border-width: 0 1px 1px 1px;
+            display: inherit;
+            list-style: none;
+            visibility: hidden;
+            z-index: 9999;
+            .position(absolute);
+            .base-top(auto);
+            .margin;
+            .opacity(0);
+            .padding;
+            .translate(40px);
+            .box-shadow;
+            .transition-transform(0.5s ease 0s);
+            a {
+                background: none;
+                color: @gray-dark;
+                &:hover {
+                    color: #5aae29;
+                }
+            }
+            li:hover {
+                background: none;
+            }
+            li.wr-megamenu-item {
+                line-height: 1;
+                text-align: left;
+                .margin;
+                .width(200px);
+            }
+        }
+        ul {
+            li a.menu-item-link {
+                display: block;
+                .padding(15px 10px);
+                .width;
+            }
+            ul.sub-menu {
+                .base-left(110%);
+                .base-top(0);
+            }
+            li:hover > ul.sub-menu {
+                .base-left(100%);
+            }
+        }
+    }
+}
+
+/* Widget Mega Menu */
+.itmm-widget-container {
+    .padding(20px);
+    > .row > div {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        .margin-bottom(20px);
+    }
+    .widget .widgettitle {
+        color: @gray;
+        font-size: 1.2em;
+        .margin(5px 0);
+    }
+    #wp-calendar a {
+        .padding;
+        .width(auto);
+    }
+    select, input, textarea {
+        .border-opacity(@black-color, 0.08);
+        .padding(5px);
+        .width;
+        &:focus {
+            .border-opacity(@black-color, 0.2);
+        }
+    }
+}
+
+/* Bootstrap Grid System */
+.fluid(@fluidGridColumnWidth, @fluidGridGutterWidth);
+
+/* Responsive */
+@media only screen and (max-width: @container-desktop), (max-device-width: @container-desktop) {
+    .wr-megamenu-container {
+        background: @black-color;
+        font-size: 12px;
+        ul li {
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            line-height: 1.5;
+            .width;
+            a {
+                color: @white-color;
+            }
+        }
+        ul.wr-mega-menu {
+            li {
+                &.wr-megamenu-item {
+                    &:hover > a.menu-item-link,
+                    > a.menu-item-link:hover {
+                        background-color: lighten(@black-color, 6.5%);
+                        color: @white-color;
+                    }
+                }
+                ul.sub-menu {
+                    background: @gray-dark;
+                    border: none;
+                    .base-left(0);
+                    .box-shadow(none);
+                }
+                ul.sub-menu,
+                ul.sub-menu li {
+                    .width !important;
+                    .float;
+                }
+                &.menu-item-has-children {
+                    > i.wr-arrow-down {
+                        background: url( "../../images/icons.png" ) no-repeat -64px 0;
+                        display: block;
+                        height: 20px;
+                        z-index: 9999;
+                        .position(absolute);
+                        .base-right(5px);
+                        .base-top(17px);
+                        .width(20px);
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                    .sub-menu {
+                        max-height: 0;
+                        .translate(none);
+                    }
+                    .active + .sub-menu {
+                        visibility: visible;                     
+                        max-height: 2000px;
+                        overflow: hidden;
+                        .base-left(0);
+                        .opacity;
+                        .position;
+                    }
+                }
+                &:hover > ul.sub-menu {
+                    .opacity(0);
+                    visibility: hidden;
+                }
+                &.megaitem-widget .itmm-widget-container ul {
+                    .margin;
+                }
+            }
+            > li.wr-megamenu-item > a.menu-item-link {
+                .padding(15px 10px);
+            }
+            ul.sub-menu a {
+                color: @white-color;
+            }
+        }
+        ul.sub-menu {
+            li {
+                a:before {
+                    background: url("../../images/icons.png") no-repeat -20px -130px;
+                    content: "";
+                    height: 16px;
+                    .margin-left(-15px);
+                    .position(absolute);
+                    .width(16px);
+                }
+            }
+            > li.wr-megamenu-item > a.menu-item-link {
+                .padding-left(@padding-base);
+            }
+            ul {
+                > li.wr-megamenu-item > a.menu-item-link {
+                    .padding-left(@padding-base + 15px);
+                }
+                ul {
+                    > li.wr-megamenu-item > a.menu-item-link {
+                        .padding-left(@padding-base + 30px);
+                    }
+                    ul {
+                        > li.wr-megamenu-item > a.menu-item-link {
+                            .padding-left(@padding-base + 45px);
+                        }
+                    }
+                }
+            }
+            .itmm-widget-container .widget li a:before {
+                background: none;
+            }
+        }
+    }
+    .itmm-widget-container {
+        color: @white-color;
+        .widget {
+            overflow: hidden;
+            .widgettitle {
+                color: @white-color;
+            }
+        }
+    }
+}
+@media only screen and (max-width: @container-tablets), (max-device-width: @container-tablets) {
+    .row [class*="col-md-"] {
+        .width;
+        .margin;
+    }
+}

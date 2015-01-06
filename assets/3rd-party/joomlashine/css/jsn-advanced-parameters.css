@@ -1,0 +1,408 @@
+/**
+ * @version    $Id$
+ * @package    JSN_Framework
+ * @author     JoomlaShine Team <support@joomlashine.com>
+ * @copyright  Copyright (C) 2012 JoomlaShine.com. All Rights Reserved.
+ * @license    GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Websites: http://www.joomlashine.com
+ * Technical Support:  Feedback - http://www.joomlashine.com/contact-us/get-support.html
+ */
+
+.jsn-grad-ex .gradientPicker-ctrlPts{
+    margin-top: 5px;
+}
+.jsn-bootstrap input.jsn-select-color {
+    width: 90px;
+}
+.jsn-master .jsn-bootstrap input.jsn-borderColor,
+.jsn-master .jsn-bootstrap input.jsn-fontColor,
+.jsn-master .jsn-bootstrap input.jsn-soildColor,
+.jsn-master .jsn-bootstrap input.jsn-shadowColor{
+    display: none;
+}
+.jsn-master .jsn-bootstrap .control-group.combo-group {
+    margin-bottom: 10px;
+}
+.jsn-master .jsn-bootstrap .combo-group .combo-item{
+    margin-right: 5px;
+    margin-bottom: 5px;
+    display: inline;
+    float: left;
+}
+.jsn-master .jsn-bootstrap .jsn-select-color{
+    margin-right: 5px;
+}
+#jsn-popover-generate-style {
+    position: absolute;
+}
+/* font Face */
+.jsn-master .colorpicker{
+    z-index: 9999;
+}
+.jsn-grad-ex {
+    width: 220px;
+    height: 25px;
+}
+.jsn-bootstrap .jsn-input-fluid{
+    width: auto;
+}
+.jsn-list-fontFace .select2-results li {
+    background-image: url("../images/backgrounds/bg-fonts.png");
+    background-repeat: no-repeat;
+    display: block;
+    height: 30px;
+    margin-bottom: 0;
+    padding: 5px 10px;
+    text-indent: -9999px;
+}
+ .combo-item select.select2-offscreen{
+    display: none;
+}
+.jsn-list-fontFace .select2-results li.jsn-fontFace-none {
+    background-position: 0 -35px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-open-sans {
+    background-position: 0 -97px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-oswald {
+    background-position: 0 -163px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-droid-sans {
+    background-position: 0 -224px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-lato {
+    background-position: 0 -284px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-open-sans-condensed {
+    background-position: 0 -343px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-pt-sans {
+    background-position: 0 -401px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-ubuntu {
+    background-position: 0 -460px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-pt-sans-narrow {
+    background-position: 0 -520px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-yanone-kaffeesatz {
+    background-position: 0 -579px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-roboto-condensed {
+    background-position: 0 -638px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-source-sans-pro {
+    background-position: 0 -697px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-nunito {
+    background-position: 0 -755px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-francois-one {
+    background-position: 0 -814px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-roboto {
+    background-position: 0 -874px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-raleway {
+    background-position: 0 -933px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-arimo {
+    background-position: 0 -992px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-cuprum {
+    background-position: 0 -1051px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-play {
+    background-position: 0 -1109px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-dosis {
+    background-position: 0 -1169px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-abel {
+    background-position: 0 -1229px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-droid-serif {
+    background-position: 0 -1287px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-arvo {
+    background-position: 0 -1347px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-lora {
+    background-position: 0 -1406px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-rokkitt {
+    background-position: 0 -1464px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-pt-serif {
+    background-position: 0 -1520px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-bitter {
+    background-position: 0 -1580px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-merriweather {
+    background-position: 0 -1640px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-vollkorn {
+    background-position: 0 -1698px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-cantata-one {
+    background-position: 0 -1757px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-kreon {
+    background-position: 0 -1817px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-josefin-slab {
+    background-position: 0 -1876px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-playfair-display {
+    background-position: 0 -1938px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-bree-serif {
+    background-position: 0 -1996px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-crimson-text {
+    background-position: 0 -2055px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-old-standard-tt {
+    background-position: 0 -2113px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-sanchez {
+    background-position: 0 -2173px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-crete-round {
+    background-position: 0 -2232px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-cardo {
+    background-position: 0 -2290px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-noticia-text {
+    background-position: 0 -2348px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-judson {
+    background-position: 0 -2406px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-lobster {
+    background-position: 0 -2465px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-unkempt {
+    background-position: 0 -2529px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-changa-one {
+    background-position: 0 -2589px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-special-elite {
+    background-position: 0 -2646px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-chewy {
+    background-position: 0 -2706px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-comfortaa {
+    background-position: 0 -2767px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-boogaloo {
+    background-position: 0 -2827px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-fredoka-one {
+    background-position: 0 -2887px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-luckiest-guy {
+    background-position: 0 -2945px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-cherry-cream-soda {
+    background-position: 0 -3003px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-lobster-two {
+    background-position: 0 -3060px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-righteous {
+    background-position: 0 -3124px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-squada-one {
+    background-position: 0 -3183px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-black-ops-one {
+    background-position: 0 -3240px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-happy-monkey {
+    background-position: 0 -3299px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-passion-one {
+    background-position: 0 -3357px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-nova-square {
+    background-position: 0 -3415px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-metamorphous {
+    background-position: 0 -3476px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-poiret-one {
+    background-position: 0 -3535px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-bevan {
+    background-position: 0 -3596px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-shadows-into-light {
+    background-position: 0 -3655px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-the-girl-next-door {
+    background-position: 0 -3714px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-coming-soon {
+    background-position: 0 -3774px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-dancing-script {
+    background-position: 0 -3833px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-pacifico {
+    background-position: 0 -3896px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-crafty-girls {
+    background-position: 0 -3959px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-calligraffitti {
+    background-position: 0 -4020px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-rock-salt {
+    background-position: 0 -4082px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-amatic-sc {
+    background-position: 0 -4151px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-leckerli-one {
+    background-position: 0 -4211px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-tangerine {
+    background-position: 0 -4270px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-reenie-beanie {
+    background-position: 0 -4327px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-satisfy {
+    background-position: 0 -4388px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-gloria-hallelujah {
+    background-position: 0 -4450px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-permanent-marker {
+    background-position: 0 -4508px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-covered-by-your-grace {
+    background-position: 0 -4564px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-walter-turncoat {
+    background-position: 0 -4623px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-patrick-hand {
+    background-position: 0 -4680px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-schoolbell {
+    background-position: 0 -4739px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-indie-flower {
+    background-position: 0 -4796px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-verdana {
+    background-position: 0 -4856px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-georgia {
+    background-position: 0 -4917px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-courier-new {
+    background-position: 0 -4978px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-arial {
+    background-position: 0 -5038px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-tahoma {
+    background-position: 0 -5102px;
+}
+
+.jsn-list-fontFace .select2-results li.jsn-fontFace-trebuchet-ms {
+    background-position: 0 -5162px;
+}

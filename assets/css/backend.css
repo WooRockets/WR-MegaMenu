@@ -1,0 +1,613 @@
+/**
+ * @version    $Id$
+ * @package    WR MegaMenu
+ * @author     WooRockets Team <support@woorockets.com>
+ * @copyright  Copyright (C) 2014 WooRockets.com All Rights Reserved.
+ * @license    GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Websites: http://www.woorockets.com
+ * Technical Support:  Feedback - http://www.woorockets.com
+ */
+
+.jsn-bootstrap3 hr {
+    border-top: 1px solid #D5D5D5;
+    border-bottom: 1px solid #E6E6E6;
+}
+#menu-style-menu_bar .input-group-btn {
+    display: inherit;
+}
+.jsn-bootstrap3 .jsn-icon16.jsn-icon-loading {
+    display: inline-block !important;
+}
+.jsn-bootstrap3 .modal-dialog {
+    width: 460px;
+}
+
+.mm-center {
+    text-align: center;
+}
+
+.mm-hidden {
+    visibility: hidden;
+}
+#locations {
+    width: auto;
+}
+#location-desc {
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.top-level-item .btn-menu-item {
+    margin-left: -3px;
+}
+
+.top-level-item {
+    margin-right: -1px;
+}
+
+.top-level-item .popover {
+    max-width: 800px;
+    width: 384px;
+    top: 33px !important;
+    right: 0;
+    left: auto;
+    z-index: 9999;
+    margin-right: -174px;
+}
+
+.top-level-item .popover.right {
+    margin-left: 9px;
+}
+
+.top-level-item .popover.right .arrow {
+    margin-left: 0;
+    top: 34px;
+}
+
+#wr-menu-top-options .control-group .control-label {
+    margin-top: 9px;
+}
+
+.msg-reset {
+    text-align: center;
+    font-size: 14px;
+}
+.selected .btn-menu-title {
+    padding-right: 38px;
+}
+
+.selected .btn-menu-setting-popover {
+    margin-left: -29px !important;
+    margin-top: 5px;
+    padding: 2px 4px 0;
+    background: transparent;
+    z-index: 800;
+}
+
+.selected .btn-menu-setting-popover:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.selected .btn-menu-setting-popover .glyphicon {
+    color: #fff;
+}
+
+.setting-content .input-group-addon {
+    border-left: 0;
+    border-top-right-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+}
+
+#wr-megamenu-builder .jsn-section-content {
+    min-height: 400px;
+}
+
+#wr-megamenu-builder .menu-items-container .top-level-item {
+    display: inline-block;
+    margin: 5px 25px 5px 0px;
+}
+
+#wr-megamenu-builder ul {
+    margin-left: 0px;
+}
+
+#wr-megamenu-builder .menu-items-container .top-level-item .btn {
+    min-width: 100px;
+}
+
+#wr-megamenu-builder #setting-container {
+    margin-top: 5px;
+}
+.wr-element-submenu > a {
+
+    border-bottom: 1px solid #d4d4d4;
+    padding-bottom: 5px;
+    display: block;
+}
+.wr-element-submenu ul {
+    list-style: none !important;
+    margin: 0;
+    padding: 0;
+}
+.wr-element-submenu .sub-menu {
+    margin-top: 5px;
+    border-top: 1px solid #c3c3c3;
+}
+.wr-element-submenu .submenu-divider {
+    height: 2px;
+    border-bottom: #cccccc solid 1px;
+}
+.wr-element-submenu .submenu-items {
+    float: left;
+    margin-right: 10px;
+    margin-top: 9px;
+    min-width: 150px;
+    border: 1px solid #D8D8D8;
+}
+.wr-element-submenu .submenu-items .sub-menu {
+    padding: 10px;
+    padding-left: 5px;
+    /*background-color: #F9F9F9;*/
+}
+.wr-element-submenu .submenu-items > li {
+    /*display: inline-block;*/
+}
+
+
+.wr-element-submenu .sub-menu > li > a {
+    position: relative;
+    display: block;
+    padding: 6px;
+}
+.wr-element-submenu .sub-menu > li > a:hover,
+.wr-element-submenu .sub-menu > li > a:focus {
+    text-decoration: none;
+    background-color: #eeeeee;
+}
+
+.wr-element-submenu .sub-menu.has-sub > li > a {
+    font-weight: bold;
+    font-size: 14px;
+    width: 99%;
+}
+
+.wr-element-submenu .sub-menu.no-sub > .level-1 li {
+    display: none;
+}
+
+.wr-element-submenu .block-sub-menu {
+    display: block;
+    overflow: auto;
+}
+.children .space {
+    margin-left: 6px;
+}
+
+.jsn-bootstrap3 .popover {
+    max-width: 700px;
+
+}
+.styling-options-resize {
+    padding-right: 4px;
+}
+.styling-options-resize .ui-resizable-e {
+    right: -5px !important;
+}
+.preview-styling-resize {
+    padding-left: 7px;
+}
+
+.preview-styling-resize h3 {
+    margin-top: 0;
+    margin-bottom: 14px;
+}
+#wr-megamenu-builder #menu-styling {
+    display: none;
+    width: 60%;
+
+}
+#menu-styling .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+.styling-modal {
+    padding: 10px;
+}
+.jsn-modal .radio-inline input {
+    margin: 1px 5px 0 -20px;
+}
+.jsn-modal .wr-menu-top-modal {
+    height: 35px;
+    line-height: 35px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+.jsn-modal .wr-menu-top-modal .param-theme_style {
+    font-size: 15px
+}
+.jsn-modal .wr-menu-top-modal .select2-container .select2-choice {
+    height: 30px;
+}
+.jsn-modal .param-theme_style {
+    font-size: 16px;
+    font-weight: normal;
+    display: block;
+    margin-right: 20px;
+    float: left;
+}
+.wr-add-field-dialog {
+    min-height: 300px;
+    position: absolute;
+    width: 98%;
+    z-index: 100000;
+}
+.wr-add-field-dialog .popover {
+    width: 99%;
+    position: absolute;
+}
+#menu-styling .control-group {
+    margin-bottom: 15px;
+}
+#menu-styling {
+    display: block;
+}
+#menu-styling .tab-content, #menu-styling .preview-styling {
+    height: 588px;
+    border-radius: 4px;
+    overflow: auto;
+}
+#menu-styling .tab-content, #menu-styling .preview-styling {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+#menu-styling .tab-content{
+    display: block;
+    margin-bottom: 0;
+}
+#menu-styling .preview-styling {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+}
+
+#menu-styling .tab-pane,
+#menu-styling .tab-pane .row,
+#menu-styling .styling-options-resize {
+    height: 100%;
+}
+
+#menu-style-submenu_panel .color-selector .input-group-btn {
+    display: block;
+}
+#menu-style-submenu_panel .color-selector {
+    float: none;
+}
+#wr-megamenu-builder .popover-content #menu-styling {
+    display: block;
+
+}
+
+
+#wr-megamenu-builder .setting-panel-header .popover {
+    width: 720px;
+}
+
+#wr-megamenu-builder .popover-content .setting-content {
+    display: block;
+    /*text-align: center;*/
+}
+
+#wr-megamenu-builder .jsn-column-container:last-child .ui-resizable-handle {
+    display: none !important;
+}
+
+#wr-megamenu-builder .jsn-column {
+    background-color: white;
+}
+
+#wr-add-element .jsn-items-list {
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 5px;
+}
+
+#wr-add-element .jsn-item .btn {
+    width: 100%;
+}
+
+.ui-dialog {
+    z-index: 100000 !important;
+}
+
+.ui-state-highlight {
+    position: relative;
+    display: block;
+    height: 16px;
+}
+
+/*=================== Widget =======================*/
+#widget-options-container form {
+    margin: 15px;
+}
+
+#widget-options-container .form-inline label {
+    float: left;
+    width: 170px;
+}
+
+#widget-options-container .form-inline br, #widget-options-container .form-inline p {
+    clear: both;
+    margin: 5px 0 5px 0;
+}
+
+#widget-options-container .form-inline textarea {
+    width: 95%;
+    height: 200px;
+}
+
+#widget-options-container input[type="text"] {
+    height: 25px;
+}
+.jsn-master .jsn-row-container > .jsn-iconbar {
+    right: -11px;
+}
+#builder-widget #jsn-add-container {
+    margin-right: 35px;
+}
+#wr-menu-top-options label {
+    font-size: 16px;
+    font-weight: normal;
+    display: block;
+    float: left;
+}
+#wr-menu-top-options > div > .mega-this-menu-lb {
+    margin-top: 18px;
+}
+#wr-menu-top-options #page-custom-css {
+    margin-left: 5px;
+}
+#wr-menu-top-options .control-group {
+    padding-left: 0;
+    display: inline-flex;
+}
+#wr-menu-top-options .top-buttons-right {
+    text-align: right;
+    padding-right: 0;
+}
+#top-level-menu-container {
+    margin: 25px 0 -5px;
+}
+.jsn-bootstrap3 .setting-container-limit{
+    padding:2px;
+    border: #cccccc dashed 1px;
+}
+#wr-menu-top-options .icon-plus {
+    margin: 0 10px;
+}
+/*===================== menu settings ===================*/
+#wr-assign-menu {
+    padding: 84px;
+}
+.setting-menu-item .control-group {
+    float: left;
+}
+
+.setting-content .control-group {
+    float: left;
+    margin-right: 10px;
+    padding-right: 10px;
+    text-align: center;
+}
+
+.setting-content .control-group.sep {
+    border-right: 1px solid #333333;
+}
+
+#menu-settings-container .control-label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.jsn-master .jsn-row-container > .jsn-iconbar.left {
+    border-left: 1px solid #DDDDDD;
+    border-radius: 4px 0 0 4px;
+    border-right: medium none;
+    left: -44px;
+    width: 37px;
+}
+
+.megamenu-left {
+    float: left;
+}
+
+.megamenu-center {
+    margin: 0 auto;
+    position: relative;
+}
+
+.megamenu-right {
+    float: right;
+}
+
+.top-level-item > .btn-group > button {
+    border-radius: 0;
+}
+
+/*fix icon*/
+.setting-menu-item [class^="glyphicon-"],
+.setting-menu-item [class*="glyphicon-"] {
+    color: #000;
+}
+
+.select2-container {
+    text-align: left;
+}
+
+.ui-dialog-titlebar-close {
+    display: none;
+}
+
+/* fix padding */
+
+.container-width, .fixed-with, .btn-alignment{
+    padding-left: 0px;
+}
+
+
+#wr-menu-top-options .control-group .control-label{
+    padding-left: 0px;
+}
+
+#wr-menu-top-options .controls{
+    margin: 0 10px;
+    float: left;
+}
+.wp-list-table #menu,
+.wp-list-table #location
+{
+    width: 200px;
+}
+/*Menu styling*/
+
+.jsn-bootstrap3 .modal-dialog {
+    margin-top: 200px;
+}
+.jsn-bootstrap3 .modal {
+    background:rgba(0, 0, 0, 0.38);
+    z-index: 10000;
+}
+.param-theme_sytle {
+    margin-top: 7px;
+}
+#s2id_menu-bar-font_type,
+#s2id_heading-text-font_type,
+#s2id_normal-text-font_type
+
+{
+    width: 120px;
+}
+#s2id_menu-bar-font_face,
+#s2id_heading-text-font_face,
+#s2id_normal-text-font_face
+{
+    width: 120px;
+    margin-right: 6px
+}
+#s2id_menu-bar-font_weight,
+#s2id_heading-text-font_weight,
+#s2id_normal-text-font_weight
+{
+    width: 80px;
+    margin-right: 6px;
+}
+#s2id_menu-bar-font_size,
+#s2id_heading-text-font_size,
+#s2id_normal-text-font_size
+{
+    width: 73px;
+}
+#menu-styling .sample-preview {
+    border: 1px solid #d4d4d4;
+    padding: 10px;
+}
+#menu-styling .popover {
+    max-width: 100%;
+}
+
+
+#menu-styling .color-selector {
+    display: inline-block;
+}
+.popover-footer {
+    text-align: right;
+}
+#reset-modal .modal-body {
+    padding-bottom: 20px;
+}
+
+.menu-item-settings .panel-group {
+    margin: 10px 0;
+}
+
+.jsn-bootstrap3 .panel-default > .panel-heading {
+    background-color: #0088CC;
+}
+.jsn-bootstrap3 .panel-default > .panel-heading a:hover {
+    text-decoration: none;
+}
+.menu-item-settings .panel-title {
+    color: #FFFFFF;
+    font-size: 13px;
+}
+.menu-item-settings .panel-title a {
+    display: block;
+    padding: 10px 15px;
+}
+.menu-item-settings .panel-title .caret {
+    margin-top: 6px;
+}
+
+.menu-item-settings .panel-title i {
+    margin-right: 9px;
+}
+
+.jsn-bootstrap3 .panel-heading {
+    padding: 0px !important;
+}
+.colpick {
+    z-index: 99999 !important;
+}
+
+/*Setting page*/
+
+.form-row label {
+    display: block;
+    margin: 6px;
+}
+
+#parent-param-menu-bar-font_attributes #s2id_param-menu-bar-font_size {
+	float: left;
+}
+#color-picker-param-menu-bar-menu_color {
+	top: 2px
+}
+#param-list_sub_menu i[class*="icon-"], .wr-element-submenu i[class*="icon-"] {
+	margin-right: 10px;
+	line-height: 30px;
+}
+.wr-element-submenu .block-sub-menu .label{
+	display: table;
+	line-height: 26px;
+}
+.jsn-bootstrap3.wr-megamenu-footer hr {
+    margin: 25px 0 10px;
+    border-bottom: 0px;
+    border-top: 1px solid #eeeeee;
+}
+
+/* WooRockets logo & banner */
+.wr-logo-40 {
+	float: left;
+	width: 40px;
+	height: 40px;
+	margin: 0px 0px 0px 10px;
+	transition: 0.5s;
+}
+.wr-logo-40.contactform {
+	background-image: url("../woorockets/images/logo-40/contactform.png");
+}
+.wr-logo-40.contactform:hover {
+	background-image: url("../woorockets/images/logo-40/contactform_hover.png");
+}
+.wr-logo-40.pagebuilder {
+	background-image: url("../woorockets/images/logo-40/pagebuilder.png");
+}
+.wr-logo-40.pagebuilder:hover {
+	background-image: url("../woorockets/images/logo-40/pagebuilder_hover.png");
+}
+.wr-other-free-plugins-text {
+	float: left;
+	margin: 12px 5px 0px 0px;
+}

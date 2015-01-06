@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>jQuery ClassyGradient plugin | Class.PM</title>
+        <link rel="stylesheet" media="screen" href="css/documentation.css" />
+        <link rel="stylesheet" href="css/jquery.colorpicker.css" />
+        <link rel="stylesheet" href="css/jquery.classygradient.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+        <script src="js/jquery.colorpicker.js"></script>
+        <script src="js/jquery.classygradient.js"></script>
+        <style>
+        .container {
+            width: 302px;
+            margin: 0 auto;
+        }
+        .targetEl {
+            line-height: 26px;
+            font-size: 12px;
+            text-align: center;
+            padding: 10px 20px;
+        }
+        .export {
+            width: 630px;
+            padding: 10px;
+            margin: 0 auto;
+            height: 200px;
+            display: block;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <header>
+                <div class="container_6 clearfix">
+                    <h1 class="grid_6">jQuery ClassyGradient</h1>
+                </div>
+            </header>
+            <section>
+                <div class="container_6 clearfix">
+                    <section class="main-section grid_6">
+                        <div class="main-content">
+                            <header>
+                                <h2>Overview</h2>
+                            </header>
+                            <section class="clearfix">
+                                <div>
+                                    <p><a href="http://www.class.pm/projects/jquery/classygradient">ClassyGradient</a> is a <a href="http://www.jquery.com">jQuery</a> plugin written by <a href="http://www.class.pm">Marius Stanciu - Sergiu</a>, a plugin that allows you to add gradient generators in your web apps and sites. Smart and fully cutomizable, it is suitable for any type of use : CSS generators, HTML5 canvas applications, live usage.</p>
+                                    <ul>
+                                        <li>Unlimited gradient points.</li>
+                                        <li>HTML5 Browsers compatible (IE9 +).</li>
+                                        <li>Generate CSS code.</li>
+                                        <li>Customizable by CSS.</li>
+                                        <li>Can easily be combined with HTML5 canvas.</li>
+                                        <li>No server files, only Javascript &amp; CSS.</li>
+                                    </ul>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                </div>
+                <div class="container_6 clearfix">
+                    <section class="main-section grid_6">
+                        <div class="main-content">
+                            <header>
+                                <h2>Instructions</h2>
+                            </header>
+                            <section class="clearfix">
+                                <div>
+<p>First you need to include the jQuery library, the jQuery UI library and the <a href="http://www.eyecon.ro/colorpicker/">ColorPicker</a> plugin, since ClassyGradient is a plugin that depends on those. You can download jQuery from the <a href="http://www.jquery.com">jQuery website</a> or link it directly from the Google CDN.</p>
+<pre>
+&lt;link rel="stylesheet" href="css/jquery.colorpicker.css" /&gt;
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"&gt;&lt;/script&gt;
+&lt;script src="js/jquery.colorpicker.js"&gt;&lt;/script&gt;
+</pre>
+<p>Secondly, you need to include the jQuery ClassyGradient javascript and CSS files into your page. You can do it by adding the code below to your page.</p>
+<pre>
+&lt;link rel="stylesheet" href="css/jquery.classygradient.css" /&gt;
+&lt;script src="js/jquery.classygradient.js"&gt;&lt;/script&gt;
+</pre>
+<p>Next, you create the element that you want to trigger the gradient on.</p>
+<pre>
+&lt;div class="gradient1"/&gt;&lt;div&gt;
+</pre>
+<p>As the last step, you trigger the <em>ClassyGradient()</em> function on the element you just created. For example, we trigger the function on the div with the class <em>gradient1</em>.</p>
+<pre>
+$('.gradient1').ClassyGradient(); 
+</pre>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                </div>
+                <div class="container_6 clearfix">
+                    <section class="main-section grid_6">
+                        <div class="main-content">
+                            <header>
+                                <h2>Options</h2>
+                            </header>
+                            <section class="clearfix">
+                                <div>
+                                    <p><em><strong>gradient</strong></em> - default gradient points.</p>
+                                    <p><em><strong>width</strong></em> - gradient preview width.</p>
+                                    <p><em><strong>height</strong></em> - gradient preview height.</p>
+                                    <p><em><strong>point</strong></em> - gradient point size.</p>
+                                    <p><em><strong>target</strong></em> - gradient destination.</p>
+                                    <p><em><strong>orientation</strong></em> - gradient orientation, can be <em>horizontal</em> or <em>vertical</em>.</p>
+                                    <p><em><strong>tooltip</strong></em> - tooltip background gradient points</p>
+                                    <hr />
+                                    <p><em><strong>onChange</strong></em> - event fired on gradient changes.</p>
+                                    <p><em><strong>onInit</strong></em> - event fired on initialization.</p>
+                                    <p><em><strong>getArray</strong></em> - return the gradient points as an array.</p>
+                                    <p><em><strong>getCss</strong></em> - return the full gradient generated CSS code.</p>
+                                    <p><em><strong>getString</strong></em> - return the gradient points as a string.</p>
+                                    <p><em><strong>setOrientation</strong></em> - change gradient orientation.</p>
+                                    <p><em><strong>update</strong></em> - trigger this method if you're updating parameters after plugin init.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                </div>
+                <div class="container_6 clearfix">
+                    <section class="main-section grid_6">
+                        <div class="main-content">
+                            <header>
+                                <h2>Demo</h2>
+                            </header>
+                            <section class="clearfix">
+                                <h3>Basic</h3>
+                                <div class="container">
+                                    <div class="gradient1"></div>
+                                </div>
+                                <script>
+                                    $(document).ready(function(){
+                                        $('.gradient1').ClassyGradient(); 
+                                    });
+                                </script>
+<pre>
+&lt;div class="gradient1"&gt;&lt;/div&gt;
+
+$(document).ready(function(){
+    $('.gradient1').ClassyGradient(); 
+});
+</pre>
+                                <h3>Customized</h3>
+                                
+                                <div class="container">
+                                    <div class="targetEl">check out this hefty (and girly) gradient</div>
+                                    <p>
+                                        <select class="gradient-orientation">
+                                            <option value="vertical" selected="selected">Vertical</option>
+                                            <option value="horizontal">Horizontal</option>
+                                        </select>
+                                    </p>
+                                    <div class="gradient2"></div>
+                                </div>
+                                <script>
+                                    $(document).ready(function() {
+                                        $('.gradient2').ClassyGradient({
+                                            gradient: '#ebf1f6 0%,#ff9cff 40%,#ff6aff 61%,#ff2db7 100%',
+                                            target: '.targetEl'
+                                        }); 
+                                    });
+                                    $('.gradient-orientation').on('change', function() {
+                                        var orientation = $(this).val();
+                                        $('.gradient2').data('ClassyGradient').setOrientation(orientation);
+                                    });
+                                </script>
+<pre>
+&lt;div class="targetEl"&gt;check out this hefty (and girly) gradient&lt;/div&gt;
+&lt;select id="orientation" onchange="changeOrientation();"&gt;
+    &lt;option value="horizontal"&gt;Horizontal&lt;/option&gt;
+    &lt;option value="vertical" selected="selected"&gt;Vertical&lt;/option&gt;
+&lt;/select&gt;
+&lt;div class="gradient2"&gt;&lt;/div&gt;
+
+$(document).ready(function() {
+    $('.gradient2').ClassyGradient({
+        gradient: '#ebf1f6 0%,#ff9cff 40%,#ff6aff 61%,#ff2db7 100%',
+        target: '#target',
+        tooltipGradient: ' #fceabb 0%,#fccd4d 49%,#f8b500 53%,#fbdf93 100%'
+    }); 
+});
+function changeOrientation() {
+    var orientation = $('#orientation :selected').val();
+    $('.gradient2').data('ClassyGradient').setOrientation(orientation);
+}
+</pre>
+                                <h3>Generate CSS code</h3>
+                                <div class="container">
+                                    <div class="gradient3"></div>
+                                </div>
+                                <script>
+                                    $(document).ready(function() {
+                                        $('.gradient3').ClassyGradient({                                
+                                            gradient: '#00ffff 0%,#008900 30%,#f00044 70%,#0042d2 100%',
+                                            onChange: function(stringGradient, cssGradient) {
+                                                $('.export').html(cssGradient);
+                                            }
+                                        }); 
+                                    });
+                                </script>       
+                                <textarea class="export"></textarea>
+<pre>
+&lt;div class="gradient3"&gt;&lt;/div&gt;
+&lt;textarea class="export"&gt;&lt;/textarea&gt;
+
+$(document).ready(function(){
+    $('.gradient3').ClassyGradient({                                
+        gradient: '#00ffff 0%,#008900 30%,#f00044 70%,#0042d2 100%',
+        onChange: function(stringGradient,cssGradient) {
+            $('.export').html(cssGradient);
+        }
+    }); 
+});
+</pre>
+                            </section>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </div>
+        <script>
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-30825160-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </body>
+</html>
