@@ -675,7 +675,12 @@ JS;
 		if ( $pagenow == 'plugins.php' ) {
 
 			$wr_mm_action = 'wr_mm_deactivate';
-			$plugin_url   = admin_url( 'plugins.php' );
+			if( is_network_admin() ){
+			    $plugin_url = network_admin_url( 'plugins.php' );
+			} else {
+			    $plugin_url = admin_url( 'plugins.php' );
+			}
+
 
 			$deactivate_one = isset( $_POST['action'] ) ? false : true;
 
@@ -784,6 +789,63 @@ JS;
 
 							}
 						}
+
+						// delete meta and posts blog all
+						if( is_network_admin() ){
+							global $wpdb;
+							// get list id blog all
+							$list_prefix_musite = $wpdb->get_results(
+								"SELECT blog_id FROM $wpdb->blogs",
+								ARRAY_A
+							);
+
+							if($list_prefix_musite && count($list_prefix_musite) > 1){
+								foreach ($list_prefix_musite as $key => $value) {
+									if ($value['blog_id'] == 1) continue;
+									
+									$prefix = $wpdb->prefix.$value['blog_id'].'_';
+
+									// get list id megamenu posts
+									$posts = $wpdb->get_results(
+										"
+										SELECT ID 
+										FROM {$prefix}posts 
+										WHERE post_type = 'wr_megamenu_profile'
+										",
+										ARRAY_A
+									);
+
+									if($posts){
+										foreach ($posts as $key_posts => $value_posts) {
+											
+											// delete post meta key
+											$wpdb->query(
+												"
+												DELETE FROM {$prefix}postmeta
+												WHERE (
+													meta_key = '".WR_MEGAMENU_META_KEY."' OR
+													meta_key = '".WR_MEGAMENU_META_KEY."_themes_options' OR
+													meta_key = '_wr_megamenu_profile_location_' OR
+													meta_key = '_wr_megamenu_css_files' OR
+													meta_key = '_wr_megamenu_css_custom'
+													) AND 
+													post_id = {$value_posts['ID']}
+												"
+											);
+
+											// delete posts
+											$wpdb->query(
+												"
+												DELETE FROM {$prefix}posts
+												WHERE ID = {$value_posts['ID']}
+												"
+											);
+										}
+									}
+								}
+							}
+						}
+
 					}
 				}
 			}

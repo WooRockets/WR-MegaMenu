@@ -62,7 +62,7 @@ class WR_Megamenu_Plugin {
 		}
 
 		// Register 'admin_menu' action
-		//add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ) );
+		add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ) );
 
 		// Register 'wr_mm_installed_product' filter
 		add_filter( 'wr_mm_installed_product', array( __CLASS__, 'register_product' ) );
@@ -113,6 +113,27 @@ class WR_Megamenu_Plugin {
 			$("#side-sortables").append("' . $link1 . $link2 . $link3 . '");
 		';
 		WR_Megamenu_Init_Assets::inline( 'js', $script );
+	}
+
+	/**
+	 * Fired when plugin is activated.
+	 *
+	 * @return void
+	 */
+	public static function on_activation() {
+		update_option( 'wr_megamenu_do_activation_redirect', 'Yes' );
+	}
+
+	/**
+	 * Do activation redirect
+	 *
+	 * @return void
+	 */
+	public static function do_activation_redirect() {
+		if ( get_option( 'wr_megamenu_do_activation_redirect', 'No' ) == 'Yes' ) {
+			update_option( 'wr_megamenu_do_activation_redirect', 'No' );
+			wp_redirect( admin_url( 'edit.php?post_type=wr_megamenu_profile&page=wr-megamenu-about-us' ) );
+		}
 	}
 
 }
