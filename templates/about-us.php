@@ -9,93 +9,202 @@
  * Websites: http://www.woorockets.com
  * Technical Support:  Feedback - http://www.woorockets.com
  */
+
+	wp_enqueue_style( 'wr-megamenu_about_us', WR_MEGAMENU_ROOT_URL . 'assets/woorockets/css/about-us.css' );
+
+	// Get array list of dismissed pointers for current user and convert it to array
+	$dismissed_pointers_thank = explode( ',', get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) );
+
+	if( !in_array( 'wr_pb_settings_pointer_megamenu_thank_installing', $dismissed_pointers_thank ) ){
+		// Load inline style
+		$style = '
+			html.wp-toolbar{padding-top: 102px; }
+			#wpadminbar{top:70px; }
+			#wr-header{position: fixed; top: 0; width: 100%; left: 0; background: #0074a2; height: 70px; z-index: 1; }
+			#wr-header .wr-logoheader{float: left; height: 100%; border-right: 1px solid #0080b1; background: #005d82; margin: 0 15px 0 0; }
+			#wr-header .wr-logoheader img{margin: 13px 10px 0; }
+			#wr-header p{font-size: 14px; color: #FFF; padding: 0 50px 0 0; display: table-cell; height: 70px; vertical-align: middle; }
+			#wr-header p a{color: #6BD8FF; text-decoration: none; }
+			#wr-header p a:hover{text-decoration: underline; color: #C1EFFF; }
+			#wr-header #close-header{float: right; margin: -47px 20px 0 0; font-size: 28px; color: rgba(0,0,0,0.3); cursor: pointer; }
+			#wr-header #close-header:hover{color: rgba(0,0,0,1); }
+			@media screen and (max-width:600px){
+				#wr-header {height: 172px; }
+			}
+		';
+		WR_Megamenu_Init_Assets::inline( 'css', $style );
+
 ?>
 
-<div class="wrap">
-	<div class="jsn-bootstrap3">
-		<h2><strong><?php esc_html_e( 'Welcome to WR Mega Menu', WR_MEGAMENU_TEXTDOMAIN ); ?></strong></h2>
-		<div class="wr-button-bar">
-			<!-- <a class="btn btn-info wr-button" href="<?php echo admin_url( 'admin.php?page=wr-mm-settings' ); ?>">Settings</a> -->
-			<a class="btn btn-info wr-button" href="http://bit.ly/wrmm-about-docs" target="_blank"><?php _e( 'Docs', WR_MEGAMENU_TEXTDOMAIN ); ?></a>
-			<a href="https://twitter.com/WooRockets" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @WooRockets</a>
-			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-			<span class="wr-plugin-version"><?php _e( 'Version', WR_MEGAMENU_TEXTDOMAIN ); ?> <?php $plugin_data = get_plugin_data( WR_MEGAMENU_MAIN_FILE ); echo $plugin_data['Version']; ?>. <?php _e( 'Follow us to get latest updates!', WR_MEGAMENU_TEXTDOMAIN ); ?></span>
+		<div id="wr-header">
+			<a class="wr-logoheader" target="_blank" href="http://www.woorockets.com/?utm_source=MegaMenu%20About&utm_medium=top%20logo&utm_campaign=Cross%20Promo%20Plugins"><img src="<?php echo WR_MEGAMENU_ROOT_URL . 'assets/woorockets/images/about-us/logo-header.png'; ?>" alt="woorockets.com" /></a>
+			<p><?php printf(__('Thank you for installing WR Mega Menu from WooRockets Team! We are making new hi-quality themes and plugins for you ;) Follow us on <a href="%s" target="_blank" >Twitter</a> or <a href="%s" target="_blank" >Subscribe</a> to our email list and be the first to get updated.', WR_MEGAMENU_TEXTDOMAIN ) , 'http://bit.ly/wr-freebie-twitter', 'http://www.woorockets.com/?utm_source=MegaMenu%20Setting&utm_medium=banner-link&utm_campaign=Cross%20Promo%20Plugins#subscribe'); ?></p>
+			<span id="close-header" class="dashicons dashicons-no"></span>
 		</div>
-		<p><?php _e( 'Thank you for installing! <strong>WR Mega Menu</strong> is your easy way to turn existing menu into a customizable mega menu in your WordPress website. User friendly, highly customizable and responsive, WR Mega Menu is simple to get started but powerful to create highly customized and creative mega menu configurations.', WR_MEGAMENU_TEXTDOMAIN ); ?></p>
-		<div role="tabpanel">
-			<ul class="nav nav-tabs wr-tabs" role="tablist">
-				<li role="presentation" class="active">
-					<a href="#hot-features" aria-controls="hot-features" role="tab" data-toggle="tab"><?php _e( 'Hot Features', WR_MEGAMENU_TEXTDOMAIN ); ?></a>
-				</li>
-				<li role="presentation">
-					<a href="#for-developers" aria-controls="for-developers" role="tab" data-toggle="tab"><?php _e( 'For Developers', WR_MEGAMENU_TEXTDOMAIN ); ?></a>
-				</li>
-				<li role="presentation">
-					<a href="#for-translators" aria-controls="for-translators" role="tab" data-toggle="tab"><?php _e( 'For Translators', WR_MEGAMENU_TEXTDOMAIN ); ?></a>
-				</li>
-			</ul>
-			<div class="tab-content">
-				<div role="tabpanel" class="tab-pane fade in active" id="hot-features">
-					<div class="feature-block">
-						<h3><?php _e( 'Intuitive Layout', WR_MEGAMENU_TEXTDOMAIN ); ?></h3>
-						<p><?php _e( 'Once installed, it’s located in the default WordPress main panel. To help you easily manage your menu, <strong>WR Mega Menu</strong> is designed with a simple and intuitive layout. You can easily select what kind of content to be shown in the submenu without going back to the front-end.', WR_MEGAMENU_TEXTDOMAIN ); ?></p>
-					</div>
-					<div class="feature-block">
-						<h3><?php _e( 'Drag and Drop Layout', WR_MEGAMENU_TEXTDOMAIN ); ?></h3>
-						<p><?php _e( 'Drag and drop is a convenient functionality for creating element in <strong>WR Mega Menu</strong>. You can easily arrange columns, move page elements into another position and even resize columns using just your mouse. You can also use the “Move button” on the sidebar to move rows up or down.', WR_MEGAMENU_TEXTDOMAIN ); ?></p>
-					</div>
-					<div class="feature-block">
-						<h3><?php _e( 'Built-in elements', WR_MEGAMENU_TEXTDOMAIN ); ?></h3>
-						<p><?php _e( 'We have created some predefined elements so you can choose the most suitable field and add as many elements as you want for your site without any coding. Interestingly, you can easily search these elements with the Spotlight Filter.', WR_MEGAMENU_TEXTDOMAIN ); ?></p>
-					</div>
-				</div>
-				<div role="tabpanel" class="tab-pane fade" id="for-developers">
-					<p><?php _e( 'If you are going to build Add-on for WR Mega Menu, this document is made for you. This part includes a knowledge base about WR Mega Menu, some basic APIs, and a tutorial to make a simple Add-on with a simple element.', WR_MEGAMENU_TEXTDOMAIN ); ?></p>
-					<!-- <a class="btn btn-info wr-button" href="http://www.woorockets.com/docs/wr-megamenu-user-manual/" target="_blank">Docs for Developers</a> -->
-					<p><?php _e( 'Get our Source Code at Github!', WR_MEGAMENU_TEXTDOMAIN ); ?></p>
-					<a class="btn btn-info wr-button" href="http://bit.ly/wrmm-about-github" target="_blank"><?php _e( 'Source Code', WR_MEGAMENU_TEXTDOMAIN ); ?></a>
-					<p><?php _e( 'Having any exciting ideas or improvements for WR Mega Menu to grow our WordPress Community? Drop an email to our WooRockets Astronaut Tony at', WR_MEGAMENU_TEXTDOMAIN ); ?> <a href="mailto:tony@woorockets.com">tony@woorockets.com</a>!</p>
-				</div>
-				<div role="tabpanel" class="tab-pane fade" id="for-translators">
-					<p><?php _e( 'If you are reading this, we need your contribution! We appreciate all kinds of support for Translating WR Mega Menu into your language!', WR_MEGAMENU_TEXTDOMAIN ); ?> <a href="http://bit.ly/wrmm-about-transifex" target="_blank"><?php _e( 'Translate WR Mega Menu', WR_MEGAMENU_TEXTDOMAIN ); ?></a>.</p>
-				</div>
+
+		<script type="text/javascript">
+			jQuery(document).ready( function($) {
+				$("#wr-header #close-header").click(function(){
+
+					$.post( ajaxurl, {
+						pointer: "wr_pb_settings_pointer_megamenu_thank_installing", // pointer ID
+						action: "dismiss-wp-pointer"
+					});
+
+					$("#wr-header").hide();
+					$("html.wp-toolbar").css({'padding-top' : '32px'});
+					$("#wpadminbar").css({'top' : 0});
+					
+				})
+			});
+		</script>
+
+<?php 
+	}
+?>
+
+<div class="wr-wrap">
+	<div id="wr-about">
+		<div class="logo-about"><img src="<?php echo WR_MEGAMENU_ROOT_URL . 'assets/woorockets/images/about-us/logo.png'; ?>" /></div>
+		<div class="content-about">
+			<h1><?php _e( 'About WR Mega Menu', WR_MEGAMENU_TEXTDOMAIN ); ?></h1>
+			<div class="description">
+				<p><?php _e( '<strong>WR Mega Menu</strong> is the simplest tool to create a beautiful menu on your website. It is fully responsive, easy to drag-and-drop and totally in control with few clicks.', WR_MEGAMENU_TEXTDOMAIN ); ?></p>
 			</div>
-		</div>
-		<br />
-		<br />
-		<div class="wr-banner-wrapper">
-			<h3><?php _e( 'See our other awesomeness', WR_MEGAMENU_TEXTDOMAIN ); ?></h3>
-			<div class="wr-banner-l">
-				<a href="http://www.woorockets.com/plugins/wr-megamenu/?utm_source=MegaMenu%20Setting&utm_medium=banner&utm_campaign=Cross%20Promo%20Plugins" target="_blank">
-					<img src="<?php echo WR_MEGAMENU_ROOT_URL . 'assets/woorockets/images/banners/PageBuilder_S.jpg'; ?>" alt="WR Page Builder" />
-				</a>
-				<a href="http://www.woorockets.com/plugins/wr-contactform/?utm_source=MegaMenu%20Setting&utm_medium=banner&utm_campaign=Cross%20Promo%20Plugins" target="_blank">
-					<img src="<?php echo WR_MEGAMENU_ROOT_URL . 'assets/woorockets/images/banners/ContactForm_S.jpg'; ?>" alt="WR Contact Form" />
-				</a>
-				<a href="http://www.woorockets.com/themes/corsa/?utm_source=MegaMenu%20Setting&utm_medium=banner&utm_campaign=Cross%20Promo%20Plugins" target="_blank">
-					<img src="<?php echo WR_MEGAMENU_ROOT_URL . 'assets/woorockets/images/banners/Corsa_S.jpg'; ?>" alt="WR Corsa" />
-				</a>
+			<div class="info">
+				<strong class="version"><?php _e( 'Current version', WR_MEGAMENU_TEXTDOMAIN ); ?>: <?php $plugin_data = get_plugin_data( WR_MEGAMENU_MAIN_FILE ); echo $plugin_data['Version']; ?> (<a target="_blank" href="http://bit.ly/wrmm-about-changelog"><?php _e( 'Change log', WR_MEGAMENU_TEXTDOMAIN ); ?></a>)</strong>
+				<p><?php _e( 'Follow us to get latest updates', WR_MEGAMENU_TEXTDOMAIN ); ?>!</p>
+				<a href="https://twitter.com/WooRockets" class="twitter-follow-button" data-show-count="false" data-size="large"><?php _e( 'Follow', WR_MEGAMENU_TEXTDOMAIN ); ?> @WooRockets</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 			</div>
 		</div>
 	</div>
+
+	<div id="email-features">
+		<div class="left-feature">
+			<div class="box-email">
+				<form action="http://www.woorockets.com/wp-content/plugins/newsletter/do/subscribe.php" method="POST">
+					<input type="hidden" value="from-mm" name="nr">
+					<input class="txt" type="email" name="ne" required placeholder="<?php _e( 'Enter your email', WR_MEGAMENU_TEXTDOMAIN ); ?>..." />
+					<input class="btn" type="submit" value=" " />
+				</form>
+				<h3><?php _e( 'Join our mailing list', WR_MEGAMENU_TEXTDOMAIN ); ?></h3>
+				<p><?php _e( 'Receive the latest updates about WR Mega Menu as well as all the best news from WooRockets', WR_MEGAMENU_TEXTDOMAIN ); ?></p>
+			</div>
+			<div class="box-document">
+				<a target="_black" class="link" href="http://www.woorockets.com/docs/wr-megamenu-user-manual/?utm_source=MegaMenu%20About&utm_medium=link&utm_campaign=Cross%20Promo%20Plugins"></a>
+				<img src="<?php echo WR_MEGAMENU_ROOT_URL . 'assets/woorockets/images/about-us/support.png'; ?>" />
+				<h3><?php _e( 'Documentation', WR_MEGAMENU_TEXTDOMAIN ); ?></h3>
+				<p><?php _e( 'Detailed construction of how to use WR Mega Menu', WR_MEGAMENU_TEXTDOMAIN ); ?></p>
+			</div>
+		</div>
+		<div class="right-feature">
+			<div role="tabpanel">
+				<ul class="nav nav-tabs wr-pb-tabs" role="tablist">
+					<li role="presentation" class="active">
+						<a href="#hot-features" aria-controls="hot-features" role="tab" data-toggle="tab"><?php _e( 'Hot Features', WR_MEGAMENU_TEXTDOMAIN ); ?></a>
+					</li>
+					<li role="presentation">
+						<a href="#for-translators" aria-controls="for-translators" role="tab" data-toggle="tab"><?php _e( 'For Translators', WR_MEGAMENU_TEXTDOMAIN ); ?></a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane fade in active" id="hot-features">
+						<div class="feature-block">
+							<h3><?php _e( 'Intuitive Layout', WR_MEGAMENU_TEXTDOMAIN ); ?></h3>
+							<p><?php _e( 'Once installed, it’s located in the default WordPress main panel. To help you easily manage your menu, <strong>WR Mega Menu</strong> is designed with a simple and intuitive layout. You can easily select what kind of content to be shown in the submenu without going back to the front-end.', WR_MEGAMENU_TEXTDOMAIN ); ?></p>
+						</div>
+						<div class="feature-block">
+							<h3><?php _e( 'Drag and Drop Layout', WR_MEGAMENU_TEXTDOMAIN ); ?></h3>
+							<p><?php _e( 'Drag and drop is a convenient functionality for creating element in <strong>WR Mega Menu</strong>. You can easily arrange columns, move page elements into another position and even resize columns using just your mouse. You can also use the “Move button” on the sidebar to move rows up or down.', WR_MEGAMENU_TEXTDOMAIN ); ?></p>
+						</div>
+						<div class="feature-block">
+							<h3><?php _e( 'Built-in elements', WR_MEGAMENU_TEXTDOMAIN ); ?></h3>
+							<p><?php _e( 'We have created some predefined elements so you can choose the most suitable field and add as many elements as you want for your site without any coding. Interestingly, you can easily search these elements with the Spotlight Filter.', WR_MEGAMENU_TEXTDOMAIN ); ?></p>
+						</div>
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="for-translators">
+						<p><?php _e( 'If you are reading this, we need your contribution! We appreciate all kinds of support for Translating WR Mega Menu into your language!', WR_MEGAMENU_TEXTDOMAIN ); ?> <a href="http://bit.ly/wrmm-about-transifex" target="_blank"><?php _e( 'Translate WR Mega Menu', WR_MEGAMENU_TEXTDOMAIN ); ?></a>.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="get-involved">
+		<h2><?php _e( 'GET INVOLVED', WR_MEGAMENU_TEXTDOMAIN ); ?></h2>
+		<div class="list-involved">
+			<div class="item-involved">
+				<div class="item-involved-inner">
+					<div class="icon-involved"><span class="dashicons dashicons-star-filled"></span><strong><?php _e( 'Rate WR Mega Menu', WR_MEGAMENU_TEXTDOMAIN ); ?></strong></div>
+					<p><?php _e( 'Share your thoughts of WR Mega Menu with other WordPress folks. Next versions of WR Mega Menu will be improved basing on your opinions.', WR_MEGAMENU_TEXTDOMAIN ); ?></p>
+				</div>
+			</div>
+			<div class="item-involved">
+				<div class="item-involved-inner">
+					<div class="icon-involved"><span class="dashicons dashicons-desktop"></span><strong><?php _e( 'Submit your Website', WR_MEGAMENU_TEXTDOMAIN ); ?></strong></div>
+					<p><?php _e( "Share your website using WR Mega Menu with us. We can include it in our showcase collection and have it exposed to thousands of WooRockets's website visitors.", WR_MEGAMENU_TEXTDOMAIN ); ?></p>
+				</div>
+			</div>
+		</div>
+		<div class="list-involved">
+			<div class="item-involved">
+				<div class="item-involved-inner">
+					<a target="_blank" class="button-primary" href="http://bit.ly/wrmm-about-rate"><?php _e( 'Review', WR_MEGAMENU_TEXTDOMAIN ); ?></a>
+				</div>
+			</div>
+			<div class="item-involved">
+				<div class="item-involved-inner">
+					<a target="_blank" class="button-primary" href="http://www.woorockets.com/contact/?utm_source=MegaMenu%20About&utm_medium=button&utm_campaign=Cross%20Promo%20Plugins"><?php _e( 'Submit your website', WR_MEGAMENU_TEXTDOMAIN ); ?></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="our-blog">
+		<div class="left-ourblog">
+			<a target="_blank" class="link" href="http://www.woorockets.com/blog/?utm_source=MegaMenu%20About&utm_medium=banner&utm_campaign=Cross%20Promo%20Plugins"></a>
+			<h3><?php _e( 'Learn more from', WR_MEGAMENU_TEXTDOMAIN ); ?> <strong><?php _e( 'OUR BLOG', WR_MEGAMENU_TEXTDOMAIN ); ?></strong></h3>
+			<span></span>
+			<p><?php _e( 'Follow our blog for latest news, tutorials & interviews about WooComerce & WordPress', WR_MEGAMENU_TEXTDOMAIN ); ?></p>
+		</div>
+		<div class="right-ourblog">
+			<h3><?php _e( 'SEE OUR OTHER AWESOMENESS', WR_MEGAMENU_TEXTDOMAIN ); ?></h3>
+			<span>***</span>
+			<div class="list-product">
+				<div class="item-product">
+					<div class="img-product"><a target="_blank" href="http://www.woorockets.com/freebie/?utm_source=MegaMenu%20About&utm_medium=banner&utm_campaign=Cross%20Promo%20Plugins"><img src="<?php echo WR_MEGAMENU_ROOT_URL . 'assets/woorockets/images/about-us/freebies.png'; ?>"  /></a></div>
+					<h4><a target="_blank" href="http://www.woorockets.com/freebie/?utm_source=MegaMenu%20About&utm_medium=banner&utm_campaign=Cross%20Promo%20Plugins"><?php _e( 'Freebies download', WR_MEGAMENU_TEXTDOMAIN ); ?></a></h4>
+				</div>
+				<div class="item-product">
+					<div class="img-product"><a target="_blank" href="http://www.woorockets.com/plugins/wr-pagebuilder/?utm_source=MegaMenu%20About&utm_medium=banner&utm_campaign=Cross%20Promo%20Plugins"><img src="<?php echo WR_MEGAMENU_ROOT_URL . 'assets/woorockets/images/about-us/page-builder.png'; ?>"  /></a></div>
+					<h4><a target="_blank" href="http://www.woorockets.com/plugins/wr-pagebuilder/?utm_source=MegaMenu%20About&utm_medium=banner&utm_campaign=Cross%20Promo%20Plugins">WR PageBuilder</a></h4>
+				</div>
+				<div class="item-product">
+					<div class="img-product"><a target="_blank" href="http://www.woorockets.com/themes/corsa/?utm_source=MegaMenu%20About&utm_medium=banner&utm_campaign=Cross%20Promo%20Plugins"><img src="<?php echo WR_MEGAMENU_ROOT_URL . 'assets/woorockets/images/about-us/corsa.png'; ?>"  /></a></div>
+					<h4><a target="_blank" href="http://www.woorockets.com/themes/corsa/?utm_source=MegaMenu%20About&utm_medium=banner&utm_campaign=Cross%20Promo%20Plugins"><?php _e( 'Corsa theme', WR_MEGAMENU_TEXTDOMAIN ); ?></a></h4>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="wr-logo">
+		<a target="_blank" href="http://www.woorockets.com/?utm_source=MegaMenu%20About&utm_medium=bot%20logo&utm_campaign=Cross%20Promo%20Plugins" class="link"></a>
+		<img src="<?php echo WR_MEGAMENU_ROOT_URL . 'assets/woorockets/images/about-us/logo-footer.png'; ?>" />
+		<h3>www.woorockets.com</h3>
+	</div>
+
 </div>
 
-<?php
-// Load inline style
-$style = '
-	.jsn-bootstrap3 { max-width: 1148px; }
-	.jsn-bootstrap3 .wr-tabs li a { font-size: 16px; }
-	.jsn-bootstrap3 p { font-size: 14px; text-align: justify; }
-	.jsn-bootstrap3 .wr-button { vertical-align: top !important; padding: 3px 12px !important; margin-right: 5px; margin-bottom: 10px !important; }
-	.jsn-bootstrap3 .wr-button-bar { margin-bottom: 10px; }
-	.jsn-bootstrap3 h3 { font-size: 20px !important; font-weight: bold !important; }
-	.jsn-bootstrap3 #hot-features p { padding-left: 20px; }
-	.jsn-bootstrap3 #hot-features .feature-block { background: #fff; border-radius: 8px; padding: 1px 20px 10px 20px; margin-top: 10px; }
-	.jsn-bootstrap3 #for-developers > p:first-child, .jsn-bootstrap3 #for-translators > p:first-child { margin-top: 20px; }
-	.jsn-bootstrap3 .translators-list a { text-decoration: underline; }
-	.wr-banner-wrapper .wr-banner { float: left; line-height: 0; margin: 0px 10px 0px 10px; }
-	.wr-banner-l a { text-decoration: none; }
-	.wr-banner-l img { margin-right: 10px; }
-	.wr-plugin-version { display: inline-block; vertical-align: top; margin: 5px 0px 0px 5px; font-size: 14px; }
-';
-WR_Megamenu_Init_Assets::inline( 'css', $style );
+<script type="text/javascript">
+	(function($) {
+		$(document).ready(function() {
+			$('#email-features .left-feature .box-email form .txt').focus(function () {
+				$('#email-features .left-feature .box-email form').addClass('focus');
+			})
+			$('#email-features .left-feature .box-email form .txt').blur(function () {
+				$('#email-features .left-feature .box-email form').removeClass('focus');
+			})
+		});
+	})(jQuery);
+</script>

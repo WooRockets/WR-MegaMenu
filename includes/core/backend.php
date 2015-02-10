@@ -607,6 +607,12 @@ JS;
 				$element->shortcode_data();
 
 				$_shortcode_content = $extract_params['_shortcode_content'];
+
+				// Keep non-WR shortcode as they are in preview iframe
+				$_shortcode_content = str_replace( '[', '&#91;', $_shortcode_content );
+				$_shortcode_content = str_replace( '&#91;wr_', '[wr_', $_shortcode_content );
+				$_shortcode_content = str_replace( '&#91;/wr_', '[/wr_', $_shortcode_content );
+
 				$content			= $element->element_shortcode( $extract_params, $_shortcode_content );
 			} else {
 				$class    = 'WR_Megamenu_Widget';

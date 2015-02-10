@@ -145,16 +145,44 @@ class WR_Megamenu_Init_Assets {
 	protected static $triggered_hooks = array();
 
 	/**
+	 * Hook into WordPress.
+	 *
+	 * @return  void
+	 */
+	public static function hook() {
+		// Register actions to load assets
+		static $registered;
+
+		if ( ! isset( $registered ) ) {
+			// Admin or frontend?
+			$prefix = apply_filters( 'wr_mm_asset_hook_prefix', defined( 'WP_ADMIN' ) ? 'admin' : 'wp' );
+
+			// Register actions
+			add_action( "{$prefix}_enqueue_scripts", array( __CLASS__, 'enqueue_scripts' ), 100 );
+			add_action( "{$prefix}_head"           , array( __CLASS__, 'head'            ), 100 );
+			add_action( "{$prefix}_footer"         , array( __CLASS__, 'footer'          ), 100 );
+
+			// Add filter to filter assets to be registered
+			add_filter( 'wr_mm_register_assets', array( __CLASS__, 'prepare' ), 1000 );
+
+			$registered = true;
+		}
+	}
+
+	/**
 	 * Load required asset.
 	 *
 	 * @param   string  $handle  Asset handle, e.g. bootstrap-css, bootstrap-js, jquery-fancybox-css, jquery-fancybox-js, etc.
-	 * @param   string  $src     Relative path from IT Plugin Framework directory to asset file.
+	 * @param   string  $src     Relative path from plugin directory to asset file.
 	 * @param   array   $deps    Array of dependencies.
 	 * @param   string  $ver     Asset version.
 	 *
 	 * @return  void
 	 */
 	public static function load( $handle, $src = null, $deps = array(), $ver = null ) {
+		// Hook into WordPress
+		self::hook();
+
 		// Check if we have an array of handle
 		if ( is_array( $handle ) ) {
 			foreach ( $handle AS $key ) {
@@ -207,6 +235,9 @@ class WR_Megamenu_Init_Assets {
 	 * @return  void
 	 */
 	public static function inline( $type, $text, $print_out = false ) {
+		// Hook into WordPress
+		self::hook();
+
 		if ( isset( self::$inline[$type] ) ) {
 			// Print out immediately if proper hook for printing out inline scripts / styles is already triggered
 			if ( 'css' == $type && in_array( 'head', self::$triggered_hooks ) ) {
@@ -227,6 +258,48 @@ class WR_Megamenu_Init_Assets {
 	}
 
 	/**
+	 * Generate and print out inline scripts / styles.
+	 *
+	 * @param   string   $type     Either 'css' or 'js'.
+	 * @param   string   $text     Text to be printed out.
+	 * @param   boolean  $no_wrap  If set to TRUE, inline script will not be wrapped inside '$( document ).ready' function.
+	 *
+	 * @return  void
+	 */
+	public static function print_inline( $type, $text = null, $no_wrap = false ) {
+		// Generate then print inline styles / scripts
+		$html = array();
+
+		if ( ! empty( $text ) || count( self::$inline[$type] ) ) {
+			if ( 'js' == $type ) {
+				$html[] = '<script type="text/javascript">';
+
+				if ( ! $no_wrap ) {
+					$html[] = '(function($) {';
+					$html[] = "\t$(document).ready(function() {";
+				}
+			} else {
+				$html[] = '<style type="text/css">';
+			}
+
+			$html[] = ! empty( $text ) ? $text : implode( "\n\n", self::$inline[$type] );
+
+			if ( 'js' == $type ) {
+				if ( ! $no_wrap ) {
+					$html[] = "\t});";
+					$html[] = '})(jQuery);';
+				}
+
+				$html[] = '</script>';
+			} else {
+				$html[] = '</style>';
+			}
+		}
+
+		echo '' . implode( "\n", $html ) . "\n";
+	}
+
+	/**
 	 * Register script localization.
 	 *
 	 * @param   string  $handle  Asset handle, e.g. bootstrap-css, bootstrap-js, jquery-fancybox-css, jquery-fancybox-js, etc.
@@ -236,6 +309,9 @@ class WR_Megamenu_Init_Assets {
 	 * @return  void
 	 */
 	public static function localize( $handle, $name, $value ) {
+		// Hook into WordPress
+		self::hook();
+
 		// Check if we have an array of handle
 		if ( is_array( $handle ) ) {
 			foreach ( $handle AS $key => $defines ) {
@@ -311,6 +387,37 @@ class WR_Megamenu_Init_Assets {
 	}
 
 	/**
+	 * Prepare assets path.
+	 *
+	 * @param   array   $assets       Assets to filtered.
+	 * @param   string  $plugin_name  Name of plugin's folder.
+	 *
+	 * @return  array
+	 */
+	public static function prepare( $assets = array(), $plugin_name = null ) {
+		// Detect base assets path and URI
+		if ( empty( $plugin_name ) ) {
+			$plugin_name = basename( dirname( dirname( dirname( __FILE__ ) ) ) );
+		}
+
+		$base_path = WP_PLUGIN_DIR . "/{$plugin_name}";
+		$base_url  = WP_PLUGIN_URL . "/{$plugin_name}";
+
+		// Prepare assets path
+		foreach ( $assets AS $key => $value ) {
+			// Fine-tune asset location
+			if ( ! preg_match( '#^(https?:)?//#', $value['src'] ) AND @is_file( $base_path . '/' . $value['src'] ) ) {
+				// Update asset location
+				$value['src'] = $base_url . '/' . $value['src'];
+
+				$assets[ $key ] = $value;
+			}
+		}
+
+		return $assets;
+	}
+
+	/**
 	 * Enqueue asset.
 	 *
 	 * @param   string   $handle  Asset handle.
@@ -318,7 +425,7 @@ class WR_Megamenu_Init_Assets {
 	 *
 	 * @return  void
 	 */
-	public static function enqueue_asset( $handle, $footer = true ) {
+	protected static function enqueue_asset( $handle, $footer = true ) {
 		if ( isset( self::$assets[ $handle ] ) && isset( self::$assets[ $handle ]['site'] ) ) {
 			if ( 'admin' == self::$assets[ $handle ]['site'] && ! defined( 'WP_ADMIN' ) ) {
 				return;
@@ -350,48 +457,6 @@ class WR_Megamenu_Init_Assets {
 		} else {
 			call_user_func( "wp_enqueue_{$type}", preg_replace( '/-(css|js)$/', '', $handle ) );
 		}
-	}
-
-	/**
-	 * Generate and print out inline scripts / styles.
-	 *
-	 * @param   string   $type     Either 'css' or 'js'.
-	 * @param   string   $text     Text to be printed out.
-	 * @param   boolean  $no_wrap  If set to TRUE, inline script will not be wrapped inside '$( document ).ready' function.
-	 *
-	 * @return  void
-	 */
-	public static function print_inline( $type, $text = null, $no_wrap = false ) {
-		// Generate then print inline styles / scripts
-		$html = array();
-
-		if ( ! empty( $text ) || count( self::$inline[$type] ) ) {
-			if ( 'js' == $type ) {
-				$html[] = '<script type="text/javascript">';
-
-				if ( ! $no_wrap ) {
-					$html[] = '(function($) {';
-					$html[] = "\t$(document).ready(function() {";
-				}
-			} else {
-				$html[] = '<style type="text/css">';
-			}
-
-			$html[] = ! empty( $text ) ? $text : implode( "\n\n", self::$inline[$type] );
-
-			if ( 'js' == $type ) {
-				if ( ! $no_wrap ) {
-					$html[] = "\t});";
-					$html[] = '})(jQuery);';
-				}
-
-				$html[] = '</script>';
-			} else {
-				$html[] = '</style>';
-			}
-		}
-
-		echo '' . implode( "\n", $html ) . "\n";
 	}
 
 	/**
@@ -434,37 +499,6 @@ class WR_Megamenu_Init_Assets {
 	}
 
 	/**
-	 * Prepare assets path.
-	 *
-	 * @param   array   $assets       Assets to filtered.
-	 * @param   string  $plugin_name  Name of plugin's folder.
-	 *
-	 * @return  array
-	 */
-	public static function prepare( $assets = array(), $plugin_name = null ) {
-		// Detect base assets path and URI
-		if ( empty( $plugin_name ) ) {
-			$plugin_name = basename( dirname( dirname( dirname( __FILE__ ) ) ) );
-		}
-
-		$base_path = WP_PLUGIN_DIR . "/{$plugin_name}";
-		$base_url  = WP_PLUGIN_URL . "/{$plugin_name}";
-
-		// Prepare assets path
-		foreach ( $assets AS $key => $value ) {
-			// Fine-tune asset location
-			if ( ! preg_match( '#^(https?:)?//#', $value['src'] ) AND @is_file( $base_path . '/' . $value['src'] ) ) {
-				// Update asset location
-				$value['src'] = $base_url . '/' . $value['src'];
-
-				$assets[ $key ] = $value;
-			}
-		}
-
-		return $assets;
-	}
-
-	/**
 	 * Generate handle for an asset file.
 	 *
 	 * @param   string  $asset   Asset file name.
@@ -487,31 +521,6 @@ class WR_Megamenu_Init_Assets {
 		}
 
 		return $handle;
-	}
-
-	/**
-	 * Hook into WordPress.
-	 *
-	 * @return  void
-	 */
-	public static function hook() {
-		// Register actions to load assets
-		static $registered;
-
-		if ( ! isset( $registered ) ) {
-			// Admin or frontend?
-			$prefix = apply_filters( 'wr_mm_asset_hook_prefix', defined( 'WP_ADMIN' ) ? 'admin' : 'wp' );
-
-			// Register actions
-			add_action( "{$prefix}_enqueue_scripts", array( __CLASS__, 'enqueue_scripts' ), 100 );
-			add_action( "{$prefix}_head"           , array( __CLASS__, 'head'            ), 100 );
-			add_action( "{$prefix}_footer"         , array( __CLASS__, 'footer'          ), 100 );
-
-			// Add filter to filter assets to be registered
-			add_filter( 'wr_mm_register_assets', array( __CLASS__, 'prepare' ), 1000 );
-
-			$registered = true;
-		}
 	}
 }
 

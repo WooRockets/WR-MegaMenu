@@ -12,8 +12,10 @@
 
 if ( ! class_exists( 'WR_Megamenu_Loader' ) ) :
 
-// Include constant definition file
-include_once dirname( __FILE__ ) . '/defines.php';
+// Include WR Library definition file
+if ( @is_file( dirname( __FILE__ ) . '/defines.php' ) ) {
+	include_once dirname( __FILE__ ) . '/defines.php';
+}
 
 /**
  * Class autoloader.
@@ -55,7 +57,7 @@ class WR_Megamenu_Loader {
 	 */
 	public static function load( $className ) {
 		// Only autoload class name prefixed with WR_
-		if ( 'WR_' == substr( $className, 0, 3 ) ) {
+		if ( 0 === strpos( $className, 'WR_' ) ) {
 			// Filter paths to search for class file
 			self::$paths = apply_filters( 'wr_mm_loader_get_path', self::$paths );
 
@@ -146,7 +148,12 @@ class WR_Megamenu_Loader {
 // Register class autoloader with PHP
 spl_autoload_register( array( 'WR_Megamenu_Loader', 'load' ) );
 
-endif;
-
 // Register base path to look for class file
 WR_Megamenu_Loader::register( dirname( __FILE__ ), 'WR_' );
+
+// Include plugin definition file
+if ( @is_file( dirname( dirname( __FILE__ ) ) . '/defines.php' ) ) {
+	include_once dirname( dirname( __FILE__ ) ) . '/defines.php';
+}
+
+endif;

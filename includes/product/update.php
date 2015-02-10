@@ -86,8 +86,13 @@ class WR_Megamenu_Product_Update extends WR_Megamenu_Product_Info {
 
 					if ( $updatable ) {
 						if ( ! isset( $updatable->purchase_data ) || ! isset( $updatable->purchase_data->download_url ) ) {
+							// Create action links handle
+							$id = str_replace( '-', '_', $identification );
+
+							eval('function wr_mm_action_links_' . $id . '( $links ) { return ' . __CLASS__ . '::action_links( "' . $id . '", $links ); }' );
+
 							// Register filter to change plugin action links
-							add_filter( 'plugin_action_links_' . $plugin_basename, array( __CLASS__, 'action_links_' . str_replace( '-', '_', $identification ) ) );
+							add_filter( 'plugin_action_links_' . $plugin_basename, 'wr_mm_action_links_' . $id );
 
 							// Continue the loop
 							continue;
@@ -143,7 +148,7 @@ class WR_Megamenu_Product_Update extends WR_Megamenu_Product_Info {
 					// Get plugin base name
 					$plugin_basename = plugin_basename( $plugin['Main_File'] );
 
-					if ( $plugin_basename == @$hook_extra['plugin'] ) {
+					if ( $plugin_basename == $hook_extra['plugin'] ) {
 						// Set new last update time
 						update_option( "{$plugin['Item_ID']}_last_update", date( 'D M d H:i:s O Y' ) );
 
@@ -179,35 +184,17 @@ class WR_Megamenu_Product_Update extends WR_Megamenu_Product_Info {
 	 *
 	 * @return  void
 	 */
-	protected static function action_links( $identification, $links ) {
+	public static function action_links( $identification, $links ) {
 		// Apply filter to get plugin settings link
 		$settings_link = apply_filters( "{$identification}_settings_url", '#' );
 
 		// Generate HTML link to ask user input purchase data
 		$html = sprintf(
-			__( "<a href='%s'>Please input Evanto information to get product's updates</a>", WR_LIBRARY_TEXTDOMAIN ),
+			__( "<a href='%s'>Please input Envato information to get product's updates</a>", WR_LIBRARY_TEXTDOMAIN ),
 			$settings_link
 		);
 
 		return array_merge( $links, ( array ) $html );
-	}
-
-	/**
-	 * Magic method to handle change plugin action links.
-	 *
-	 * @param   string  $name  Name of method being executed.
-	 * @param   array   $args  Function call arguments.
-	 *
-	 * @return  mixed
-	 */
-	public static function __callStatic( $name, $args ) {
-		if ( preg_match( '/^action_links_(.+)$/', $name, $match ) ) {
-			// Update arguments
-			array_unshift( $args, $match[1] );
-
-			// Execute function to change plugin action links
-			return call_user_func_array( array( __CLASS__, 'action_links' ), $args );
-		}
 	}
 }
 
