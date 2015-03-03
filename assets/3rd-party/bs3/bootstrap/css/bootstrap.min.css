@@ -2361,7 +2361,7 @@ fieldset[disabled] .jsn-bootstrap3 .btn-link:focus {
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url('../fonts/glyphicons-halflings-regular.eot');
-  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .jsn-bootstrap3 .glyphicon {
   position: relative;
@@ -2973,6 +2973,180 @@ fieldset[disabled] .jsn-bootstrap3 .btn-link:focus {
 }
 .jsn-bootstrap3 .glyphicon-tree-deciduous:before {
   content: "\e200";
+}
+.jsn-bootstrap3 .glyphicon-cd:before {
+  content: "\e201";
+}
+.jsn-bootstrap3 .glyphicon-save-file:before {
+  content: "\e202";
+}
+.jsn-bootstrap3 .glyphicon-open-file:before {
+  content: "\e203";
+}
+.jsn-bootstrap3 .glyphicon-level-up:before {
+  content: "\e204";
+}
+.jsn-bootstrap3 .glyphicon-copy:before {
+  content: "\e205";
+}
+.jsn-bootstrap3 .glyphicon-paste:before {
+  content: "\e206";
+}
+.jsn-bootstrap3 .glyphicon-alert:before {
+  content: "\e209";
+}
+.jsn-bootstrap3 .glyphicon-equalizer:before {
+  content: "\e210";
+}
+.jsn-bootstrap3 .glyphicon-king:before {
+  content: "\e211";
+}
+.jsn-bootstrap3 .glyphicon-queen:before {
+  content: "\e212";
+}
+.jsn-bootstrap3 .glyphicon-pawn:before {
+  content: "\e213";
+}
+.jsn-bootstrap3 .glyphicon-bishop:before {
+  content: "\e214";
+}
+.jsn-bootstrap3 .glyphicon-knight:before {
+  content: "\e215";
+}
+.jsn-bootstrap3 .glyphicon-baby-formula:before {
+  content: "\e216";
+}
+.jsn-bootstrap3 .glyphicon-tent:before {
+  content: "\26fa";
+}
+.jsn-bootstrap3 .glyphicon-blackboard:before {
+  content: "\e218";
+}
+.jsn-bootstrap3 .glyphicon-bed:before {
+  content: "\e219";
+}
+.jsn-bootstrap3 .glyphicon-apple:before {
+  content: "\f8ff";
+}
+.jsn-bootstrap3 .glyphicon-erase:before {
+  content: "\e221";
+}
+.jsn-bootstrap3 .glyphicon-hourglass:before {
+  content: "\231b";
+}
+.jsn-bootstrap3 .glyphicon-lamp:before {
+  content: "\e223";
+}
+.jsn-bootstrap3 .glyphicon-duplicate:before {
+  content: "\e224";
+}
+.jsn-bootstrap3 .glyphicon-piggy-bank:before {
+  content: "\e225";
+}
+.jsn-bootstrap3 .glyphicon-scissors:before {
+  content: "\e226";
+}
+.jsn-bootstrap3 .glyphicon-bitcoin:before {
+  content: "\e227";
+}
+.jsn-bootstrap3 .glyphicon-yen:before {
+  content: "\00a5";
+}
+.jsn-bootstrap3 .glyphicon-ruble:before {
+  content: "\20bd";
+}
+.jsn-bootstrap3 .glyphicon-scale:before {
+  content: "\e230";
+}
+.jsn-bootstrap3 .glyphicon-ice-lolly:before {
+  content: "\e231";
+}
+.jsn-bootstrap3 .glyphicon-ice-lolly-tasted:before {
+  content: "\e232";
+}
+.jsn-bootstrap3 .glyphicon-education:before {
+  content: "\e233";
+}
+.jsn-bootstrap3 .glyphicon-option-horizontal:before {
+  content: "\e234";
+}
+.jsn-bootstrap3 .glyphicon-option-vertical:before {
+  content: "\e235";
+}
+.jsn-bootstrap3 .glyphicon-menu-hamburger:before {
+  content: "\e236";
+}
+.jsn-bootstrap3 .glyphicon-modal-window:before {
+  content: "\e237";
+}
+.jsn-bootstrap3 .glyphicon-oil:before {
+  content: "\e238";
+}
+.jsn-bootstrap3 .glyphicon-grain:before {
+  content: "\e239";
+}
+.jsn-bootstrap3 .glyphicon-sunglasses:before {
+  content: "\e240";
+}
+.jsn-bootstrap3 .glyphicon-text-size:before {
+  content: "\e241";
+}
+.jsn-bootstrap3 .glyphicon-text-color:before {
+  content: "\e242";
+}
+.jsn-bootstrap3 .glyphicon-text-background:before {
+  content: "\e243";
+}
+.jsn-bootstrap3 .glyphicon-object-align-top:before {
+  content: "\e244";
+}
+.jsn-bootstrap3 .glyphicon-object-align-bottom:before {
+  content: "\e245";
+}
+.jsn-bootstrap3 .glyphicon-object-align-horizontal:before {
+  content: "\e246";
+}
+.jsn-bootstrap3 .glyphicon-object-align-left:before {
+  content: "\e247";
+}
+.jsn-bootstrap3 .glyphicon-object-align-vertical:before {
+  content: "\e248";
+}
+.jsn-bootstrap3 .glyphicon-object-align-right:before {
+  content: "\e249";
+}
+.jsn-bootstrap3 .glyphicon-triangle-right:before {
+  content: "\e250";
+}
+.jsn-bootstrap3 .glyphicon-triangle-left:before {
+  content: "\e251";
+}
+.jsn-bootstrap3 .glyphicon-triangle-bottom:before {
+  content: "\e252";
+}
+.jsn-bootstrap3 .glyphicon-triangle-top:before {
+  content: "\e253";
+}
+.jsn-bootstrap3 .glyphicon-console:before {
+  content: "\e254";
+}
+.jsn-bootstrap3 .glyphicon-superscript:before {
+  content: "\e255";
+}
+.jsn-bootstrap3 .glyphicon-subscript:before {
+  content: "\e256";
+}
+.jsn-bootstrap3 .glyphicon-menu-left:before {
+  content: "\e257";
+}
+.jsn-bootstrap3 .glyphicon-menu-right:before {
+  content: "\e258";
+}
+.jsn-bootstrap3 .glyphicon-menu-down:before {
+  content: "\e259";
+}
+.jsn-bootstrap3 .glyphicon-menu-up:before {
+  content: "\e260";
 }
 .jsn-bootstrap3 .caret {
   display: inline-block;

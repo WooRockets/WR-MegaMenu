@@ -144,7 +144,7 @@ class WR_Megamenu_Core_Frontend {
 			}
 			
 			if ( $setting['heading-text-font'] != 'inherit' ) {
-				$style .= '.wr-element-container.' . $profile_selector . ' a.caption {
+				$style .= '.' . $profile_selector . ' .wr-mega-menu a.caption {
 							 color: ' . $setting['heading-text-menu_color'] . ' !important;
 							 font-family: ' . $setting['heading-text-font_face'] . ' !important;
 							 font-size:' . $setting['heading-text-font_size'] . 'px !important;
@@ -177,12 +177,14 @@ class WR_Megamenu_Core_Frontend {
 				$script .= "$(document).scroll(function () {
 								var y = $(document).scrollTop(),
 								mega_container = $( '.wr-megamenu-container.$profile_selector' );
+								responsive = $( '.it-responsive-mega' );
 								if (y > mega_container.parent().offset().top) {
 									mega_container.addClass( 'stick' );
+									responsive.addClass( 'stick' );
 								} else {
 									mega_container.removeClass( 'stick' );
+									responsive.removeClass( 'stick' );
 								}
-
 							});";
 			}
 

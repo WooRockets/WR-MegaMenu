@@ -10,54 +10,63 @@
  */
  
 (function ($) {
-	
-	var is_mobile_browser = function () {
-		if( navigator.userAgent.match(/Android/i)
-				|| navigator.userAgent.match(/webOS/i)
-				|| navigator.userAgent.match(/iPhone/i)
-				|| navigator.userAgent.match(/iPad/i)
-				|| navigator.userAgent.match(/iPod/i)
-				|| navigator.userAgent.match(/BlackBerry/i)
-				|| navigator.userAgent.match(/Windows Phone/i)
-		) {
-			return true;
-		} else {
-			return false;
-		}
-	};
 
     $(document).ready(function() {
-    	
-    	if ( is_mobile_browser() ) {
-    		$('.wr-megamenu-container').each(function () {
-    			var rand_id = Date.now();
-    			rand_id     = 'dln_megamenu_' + rand_id;
-    			
-    			// Insert button responsive-mega
-    			if ( ! $(this).attr('data-relate-id') ) {
-    				$(this).attr('data-relate-id', rand_id);
-    				
-    				// Create new button reposinve-mega class
-    				var button = $('<button class="it-responsive-mega" id="' + rand_id + '" />');
-    				$(this).before(button);
-    			}
-    		});
-    		
-    		// Add click action
-    		$('.it-responsive-mega').on('click', function (e) {
-    			e.preventDefault();
 
-    			// Remove active state
-    			$('.it-responsive-mega').removeClass('active');
-    			$('.wr-megamenu-container').removeClass('active');
-    			
-    			var id_relate = $(this).attr('id');
-    			if ( $('.wr-megamenu-container[data-relate-id="' + id_relate + '"]').length ) {
-    				$(this).addClass('active');
-    				$('.wr-megamenu-container[data-relate-id="' + id_relate + '"]').addClass('active');
-    			}
-    		});
-    	}
+        $('.wr-megamenu-container').each(function (key, value) {
+
+            var rand_id = Date.now();
+            rand_id     = 'dln_megamenu_' + rand_id + key;
+            
+            // Insert button responsive-mega
+            if ( ! $(this).attr('data-relate-id') ) {
+                $(this).attr('data-relate-id', rand_id);
+                
+                // Create new button reposinve-mega class
+                var button = $('<div class="it-responsive-mega" id="' + rand_id + '" ></div>'); 
+                $(this).before(button);
+            }
+
+            //Add arrow down if has children
+            var list_item = $(this).find('ul.wr-mega-menu > li.menu-item');
+
+            $(list_item).each(function (key_item, value_item) {
+                var count_children = $(value_item).children().length;
+                if(count_children > 1){
+                    $(value_item).children('a.menu-item-link').after('<span class="wr-menu-down"></span>');
+                }
+            });
+
+            // Subitem
+            $(this).find('ul.wr-mega-menu > li.menu-item > .sub-menu .menu-item-has-children > a').after('<span class="wr-menu-down"></span>');
+        });
+        
+        // Add click action
+        $('.it-responsive-mega').on('click', function (e) {
+            e.preventDefault();
+            if($(this).hasClass('active')){
+                $(this).removeClass('active');
+                $(this).next('.wr-megamenu-container').removeClass('active');
+            } else{
+                $(this).addClass('active');
+                $(this).next('.wr-megamenu-container').addClass('active');
+            }
+        });
+
+
+
+        // Add click action
+        $('.wr-menu-down').on('click', function (e) {
+            e.preventDefault();
+            if($(this).hasClass('active')){
+                $(this).removeClass('active');
+                $(this).next().removeClass('active');
+            } else{
+                $(this).addClass('active');
+                $(this).next().addClass('active');
+            }
+        });
+
 
         $(window).on('load', function() {
             onResizing();

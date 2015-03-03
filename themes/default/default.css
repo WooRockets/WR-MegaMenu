@@ -11,6 +11,7 @@
 
 .wr-megamenu-container {
     background: #000;
+    text-align: left;
 }
 .wr-megamenu-container ul.wr-mega-menu ul.sub-menu,
 .wr-megamenu-inner {
@@ -52,7 +53,4 @@
 }
 .wr-element-submenu .submenu-items a {
     color: #777777;
-}
-.wr-element-submenu .caption {
-    background: #474747;
 }
