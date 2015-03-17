@@ -1597,4 +1597,25 @@
 	};
 
 	$(document).ready($.HandleElement.init);
+
+	// Fix conflict click event
+	$('.wr-element-container.wr-element-megamenu_image a').click(function(){
+
+		var check_fancybox = $(this).hasClass( 'mm-image-fancy' );
+		
+		if(!check_fancybox){
+
+			var url_image = $(this).attr('href');
+			var url_black_image = $(this).attr('target');
+
+			if(url_black_image == '_blank'){
+				window.open(url_image, url_black_image);
+			} else{
+				window.location.href = url_image;
+			}
+
+		}
+
+	})
+
 })(jQuery);

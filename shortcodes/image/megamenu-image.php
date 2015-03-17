@@ -55,6 +55,14 @@ class WR_Megamenu_Image extends WR_Megamenu_Shortcode_Element
 			),
 
 			'frontend_assets' => array(
+				// Bootstrap 3
+				'wr-pb-bootstrap-css',
+				'wr-pb-bootstrap-js',
+
+				// Fancy Box
+				'wr-pb-jquery-fancybox-css',
+				'wr-pb-jquery-fancybox-js',
+
 				// Lazy Load
 				'wr-jquery-lazyload-js',
 
@@ -269,6 +277,10 @@ class WR_Megamenu_Image extends WR_Megamenu_Shortcode_Element
 					case 'new_window':
 						$cls_button_fancy = 'wr-button-new-window';
 						$script           = WR_Megamenu_Helpers_Functions::new_window( ".$cls_button_fancy", array( 'width' => '75%', 'height' => '75%' ) );						
+						break;
+					case 'lightbox':
+						$cls_button_fancy = 'mm-image-fancy';
+						break;
 				}
 			}
 

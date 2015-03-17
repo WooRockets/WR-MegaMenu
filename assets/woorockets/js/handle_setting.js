@@ -817,7 +817,7 @@
                 minWidth: 400,
 
                 start: $.proxy(function (event, ui) {
-
+                	$('.wr-preview-resize #wr_overlay_loading').show();
                 }, this),
                 resize: $.proxy(function (event, ui) {
 
@@ -828,7 +828,7 @@
 
                 }, this),
                 stop: $.proxy(function (event, ui) {
-
+                	$('.wr-preview-resize #wr_overlay_loading').fadeOut();
                 })
             });
 

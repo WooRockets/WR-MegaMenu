@@ -141,6 +141,12 @@ class WR_Submenu extends WR_Megamenu_Shortcode_Element {
 						'2' => '2',
 						'3' => '3',
 						'4' => '4',
+						'5'  => '5',
+						'6'  => '6',
+						'7'  => '7',
+						'8'  => '8',
+						'9'  => '9',
+						'10' => '10',
 					),
 					'dependency' => array( 'column_breaking', '=', 'no_of_column' ),
 				),
@@ -283,28 +289,68 @@ class WR_Submenu extends WR_Megamenu_Shortcode_Element {
 }
 
 class WR_Walker_SubMenu extends Walker_Nav_Menu {
-	var $count = 0;
+	var $count = 1;
+	var $count_row = 0;
+    var $check_insert_break = FALSE;
+    var $count_items = NULL;
+    var $current_parentid = NULL;
+
+
+    function wr_count_item( $id_parentid ){
+    	global $wpdb;
+    	$this->count_items = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->postmeta WHERE meta_key = '_menu_item_menu_item_parent' AND meta_value = $id_parentid " );
+    }
 
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+            
 		$indent      = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 		$class_names = $value = '';
 
 		$classes   = empty( $item->classes ) ? array() : (array) $item->classes;
 		$classes[] = 'menu-item-' . $item->ID;
-		if ( $args->column_breaking != 'off' ) {
-			
-			if ( $args->column_breaking == 'no_of_column' ) {
-				$args->items_per_column = round( ( $args->count_items / $args->no_of_column + 0.25 ) );
+                
+                if ( $this->check_insert_break && $item->sub_level == 1 ) {
+                    $output .= '</ul><ul class="'.$args->class_submenu.'" >';
+                    $this->check_insert_break = FALSE;
+                }
+                
+		if ( $args->column_breaking != 'off' ) {	
+
+
+			if($item->sub_level == 1 && $this->current_parentid != $item->menu_item_parent ){
+
+				$this->current_parentid = $item->menu_item_parent;
+
+				global $wpdb;
+    			$this->count_items = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->postmeta WHERE meta_key = '_menu_item_menu_item_parent' AND meta_value = $item->menu_item_parent " );
+
 			}
 
+
 			if ( $depth == 0 ) {
-				
-				if ( $this->count == 0 ) {
-					
-				} else if ( ( $args->items_per_column == 1) || ( ( $this->count % $args->items_per_column ) == 0 ) ){
-					$output .= '</ul><ul class="'.$args->class_submenu.'" >';
-				}
-			}
+				if ( $args->column_breaking == 'no_of_column' ) {
+					$args->items_per_column = ceil( ( $this->count_items / $args->no_of_column ) );
+                    $surplus = $this->count_items % $args->no_of_column;
+                    if ( $this->count < $this->count_items){
+                        if( ($this->count % $args->items_per_column) == 0 && ( $this->count < ($surplus * $args->items_per_column)  || $surplus == 0 ) ){
+                            $this->check_insert_break = TRUE;
+                        } elseif ( $surplus != 0 &&  ( ( $this->count - ( $args->items_per_column * $surplus ) )  % ( $args->items_per_column - 1 ) ) == 0 && $this->count >= ( $surplus * $args->items_per_column ) ) {
+                            $this->check_insert_break = TRUE;
+                        }
+                    }
+	            } else if ( $args->column_breaking == 'items_per_column' ) {
+                    if ( $this->count_row == 0 ) {
+					} else if ( ( $args->items_per_column == 1) || ( ( $this->count_row % $args->items_per_column ) == 0 ) ){
+						$output .= '</ul><ul class="'.$args->class_submenu.'" >';
+					}
+	            }
+            }
+            
+            if($item->sub_level == 1){
+            	$this->count++;
+            	$this->count_row++;
+            }
+
 		}
 
 		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
@@ -344,7 +390,6 @@ class WR_Walker_SubMenu extends Walker_Nav_Menu {
 
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 
-		$this->count++;
 	}
 	
 }

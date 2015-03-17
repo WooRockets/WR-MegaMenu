@@ -126,7 +126,7 @@ class WR_Megamenu_Walker extends Walker_Nav_Menu {
 	
 		$el_styles = $el_styles ? ' style="' . esc_attr( join( ';', $el_styles ) ) . '"' : '';
 	
-		if ( ($depth == 1 || $depth == 2) && $this->is_mega ) {
+		if ( $depth != 0 && $this->is_mega ) {
 			$output    .= '';
 			$item_output = '';
 		} else {

@@ -78,6 +78,7 @@ class WR_Megamenu_Helpers_Modal
 		WR_Megamenu_Init_Assets::load( array( 'wr-jquery-ui-css', 'wr-megamenu-modal-css', 'wr-mm-css' ) );
 		WR_Megamenu_Init_Assets::load( array( 'wr-bootstrap3-icomoon-css', 'wr-mm-admin-css' ) );
 		WR_Megamenu_Init_Assets::load( array( 'wr-jquery-ui-css', 'wr-jquery-select2-css', 'wr-jquery-select2-bootstrap3-css' ) );
+		WR_Megamenu_Init_Assets::load( array( 'wr-mm-jqueryfancybox-css' ) );
 
 		if ( function_exists( 'wp_enqueue_media' ) ) {
 			wp_enqueue_media();
@@ -107,6 +108,12 @@ class WR_Megamenu_Helpers_Modal
 		WR_Megamenu_Init_Assets::load( 'wr-zeroclipboard-js' );
 
 		WR_Megamenu_Init_Assets::load( 'wr-mm-widget-js' );
+
+		// Load Jquery fancybox
+		WR_Megamenu_Init_Assets::load( 'wr-mm-jqueryfancybox-js' );
+
+		// Load for element image
+		WR_Megamenu_Init_Assets::load( 'wr-mm-imagefrontend-js' );
 
 		WR_Megamenu_Init_Assets::localize( 'wr-custom-css-js', 'Wr_Megamenu_Translate', WR_Megamenu_Helpers_Functions::js_translation() );
 		WR_Megamenu_Init_Assets::localize( 'wr-mm-handlesetting-js', 'Wr_Megamenu_Ajax', WR_Megamenu_Helpers_Functions::localize_js() );

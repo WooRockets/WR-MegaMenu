@@ -107,6 +107,19 @@ class WR_Megamenu_Init_Assets {
 			'src' => 'assets/woorockets/js/addons.js',
 			'deps' => array( 'wr-bootstrap3-js', 'jquery-ui-dialog' ),
 		),
+
+		/**
+		 * Jquery fancybox.
+		 */
+		'wr-pb-jquery-fancybox-js' => array(
+			'src' => 'assets/3rd-party/jquery-fancybox/jquery.fancybox-1.3.4.js',
+			'ver' => '1.3.4',
+		),
+
+		'wr-pb-jquery-fancybox-css' => array(
+			'src' => 'assets/3rd-party/jquery-fancybox/jquery.fancybox-1.3.4.css',
+			'ver' => '1.3.4',
+		),
 	);
 
 	/**

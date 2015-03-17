@@ -17,6 +17,16 @@
 				effect       : "fadeIn"
 			});
 		}
+		if (typeof($.fancybox) == "function") {
+			$(".mm-image-fancy").fancybox({
+				"autoScale"	: true,
+				"transitionIn"	: "elastic",
+				"transitionOut"	: "elastic",
+				"type"		: "iframe",
+				"width"		: "75%",
+				"height"	: "75%"
+			});
+		}
 	});
 
 })(jQuery);

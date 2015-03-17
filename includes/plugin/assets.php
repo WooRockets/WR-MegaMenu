@@ -355,7 +355,21 @@ class WR_Megamenu_Assets
 			'src' => WR_MEGAMENU_ROOT_URL . 'assets/woorockets/js/placeholder.js',
 			'ver' => '1.0.0',
 		);
+
+		$assets[ 'wr-mm-jqueryfancybox-css' ] = array(
+			'src' => WR_MEGAMENU_ROOT_URL . 'assets/3rd-party/jquery-fancybox/jquery.fancybox-1.3.4.css',
+			'ver' => '1.3.4',
+		);
+
+		$assets[ 'wr-mm-jqueryfancybox-js' ] = array(
+			'src' => WR_MEGAMENU_ROOT_URL . 'assets/3rd-party/jquery-fancybox/jquery.fancybox-1.3.4.js',
+			'ver' => '1.3.4',
+		);
 		
+		$assets[ 'wr-mm-imagefrontend-js' ] = array(
+			'src' => WR_MEGAMENU_ROOT_URL . 'shortcodes/image/assets/js/image_frontend.js',
+		);
+	
 		return array_merge( $assets, self::$assets );
 	}
 }

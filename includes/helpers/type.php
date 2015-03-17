@@ -201,8 +201,8 @@ if ( ! class_exists( 'WR_Megamenu_Helpers_Type' ) ) {
 		static function get_open_in_options() {
 			return array(
 				'current_browser' => __( 'Current Browser', WR_MEGAMENU_TEXTDOMAIN ),
-				'new_browser'     => __( 'New Browser', WR_MEGAMENU_TEXTDOMAIN ),
-				// 'lightbox'     => __( 'Lightbox', WR_MEGAMENU_TEXTDOMAIN ),
+				'new_browser'     => __( 'New Tab', WR_MEGAMENU_TEXTDOMAIN ),
+				'lightbox'     => __( 'Lightbox', WR_MEGAMENU_TEXTDOMAIN ),
 			);
 		}
 

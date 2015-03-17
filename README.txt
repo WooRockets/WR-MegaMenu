@@ -80,3 +80,9 @@ For further information, product details, help and tutorials, please visit our w
 
 = 1.0.7 =
  * Improved Responsive interface
+
+= 1.0.8 =
+ * Added Lightbox for image element and improved in feature on preview
+ * Fixed Sub menu devision feature
+ * Fixed Resizing feature doesn't work smooth
+ * Fixed Sub menu level 3 auto moved to level 1
