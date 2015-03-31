@@ -160,7 +160,7 @@ if ( ! empty( $shortcode ) ) {
 			<textarea class="hidden" id="wr_extract_data"></textarea>
 			<input type="hidden" id="wr_previewing" value="0" />
 			<input id="shortcode_type" type="hidden" value="<?php echo esc_attr( $el_type ); ?>" />
-			<input id="shortcode_name" type="hidden" value="<?php echo esc_attr( mysql_real_escape_string( $_GET['wr_modal_type'] ) ); ?>" />
+			<input id="shortcode_name" type="hidden" value="<?php echo esc_attr( addslashes( $_GET['wr_modal_type'] ) ); ?>" />
 
 			<div class="jsn-modal-overlay"></div>
 			<div class="jsn-modal-indicator"></div>

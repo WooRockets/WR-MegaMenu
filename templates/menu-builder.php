@@ -424,7 +424,7 @@ $styling_fields['submenu_panel'] = array(
 						<select name="locations" id="locations" class="form-control select2-select">
 							<?php
 foreach ( $locations as $key => $value ) {
-	$selected = ( $key == $data['location'] ) ? 'selected="selected"' : '';
+	$selected = ( isset($data['location']) && $key == $data['location'] ) ? 'selected="selected"' : '';	
 	echo "<option value='" . $key . "' " . $selected . '>' . $value . '</option>';
 }
 							?>

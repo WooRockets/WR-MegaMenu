@@ -86,3 +86,8 @@ For further information, product details, help and tutorials, please visit our w
  * Fixed Sub menu devision feature
  * Fixed Resizing feature doesn't work smooth
  * Fixed Sub menu level 3 auto moved to level 1
+
+= 1.0.9 =
+ * Fixed php errors detected by Query Monitor plugin
+ * Fixed Bug with resizing Styling form
+	

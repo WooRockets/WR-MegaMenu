@@ -37,7 +37,7 @@
             var height      = ( height > 720 ) ? 720 : height;
             // Resize all wr-modal
             $('.wr-dialog').each(function () {
-                if ( $(this).find('#jsn_view_modal').length ) {
+                if ( $(this).find('#jsn_view_modal').length || $(this).find('#menu-styling').length ) {
                     width = full_width;
                 } else {
                     width = fixed_width;

@@ -28,7 +28,7 @@ class WR_Megamenu_Helpers_Layout {
 			}
 			include $file_path;
 		} else {
-			__( '<h2>Template file not found.</h2>', WR_MEGAMENU_TEXTDOMAIN );
+			'<h2>' . __( 'Template file not found.', WR_MEGAMENU_TEXTDOMAIN ) . '</h2>';
 		}
 	}
 
