@@ -180,6 +180,11 @@ class WR_Megamenu_Assets
 			'src' => 'assets/js/icon-options.js',
 			'ver' => '1.0.0',
 		),
+
+		'wr-font-awesome-css' => array(
+			'src' => 'assets/3rd-party/font-awesome/css/font-awesome.min.css',
+			'ver' => '4.3.0',
+		),
 	);
 
 	/**
@@ -201,7 +206,7 @@ class WR_Megamenu_Assets
 			
 			if ( ( $pagenow == 'nav-menus.php' ) || ( $post_type == 'wr_megamenu_profile' ) || ( $page_setting == 'wr-megamenu-settings' ) || ( $page_setting == 'wr-menu-addons' ) ) {
 				WR_Megamenu_Init_Assets::load( array( 'wr-mm-bootstrap3-css', 'wr-bootstrap3-js', 'wr-joomlashine-css', 'wr-mm-css' ) );
-				WR_Megamenu_Init_Assets::load( array( 'wr-font-icomoon-css' ) );
+				WR_Megamenu_Init_Assets::load( array( 'wr-font-icomoon-css', 'wr-font-awesome-css' ) );
 				WR_Megamenu_Init_Assets::load( array( 'wr-jquery-ui-css', 'wr-jquery-select2-css', 'wr-jquery-select2-bootstrap3-css', 'wr-mm-admin-css' ) );
 			}
 
@@ -267,7 +272,7 @@ class WR_Megamenu_Assets
 			}
 		} else {
 			WR_Megamenu_Init_Assets::load( array( 'wr-mm-bootstrap3-css', 'wr-bootstrap3-js', 'wr-joomlashine-css', 'wr-mm-css' ) );
-			WR_Megamenu_Init_Assets::load( array( 'wr-font-icomoon-css' ) );
+			WR_Megamenu_Init_Assets::load( array( 'wr-font-icomoon-css', 'wr-font-awesome-css' ) );
 		}
 
 	}

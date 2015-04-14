@@ -91,3 +91,9 @@ For further information, product details, help and tutorials, please visit our w
  * Fixed php errors detected by Query Monitor plugin
  * Fixed Bug with resizing Styling form
 	
+= 1.1.0 =
+ * Added Font Awesome integration
+ * Fixed Double click to open dropdown menu on IOS
+ * Fixed Bugs with some popular themes
+ * Fixed Display in submenu level 3
+	

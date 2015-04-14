@@ -1191,6 +1191,12 @@ input:checked + .radio_image{
     overflow-y: scroll;
     padding: 5px;
 }
+.jsn-bootstrap3 .wr-select-font{
+    margin: 0 21px;
+}
+.wr-icon i.fa{
+    font-size: 16px;
+}
 .jsn-bootstrap3 .jsn-fieldset-filter {
     margin-bottom: 15px;
     margin-bottom: 15px;

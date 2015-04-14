@@ -120,6 +120,14 @@ class WR_Megamenu_Init_Assets {
 			'src' => 'assets/3rd-party/jquery-fancybox/jquery.fancybox-1.3.4.css',
 			'ver' => '1.3.4',
 		),
+
+		/**
+		 * Font awesome.
+		 */
+		'wr-font-awesome-css' => array(
+			'src' => 'assets/3rd-party/jquery-fancybox/jquery.fancybox-1.3.4.js',
+			'ver' => '4.3.0',
+		),
 	);
 
 	/**

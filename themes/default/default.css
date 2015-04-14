@@ -26,9 +26,12 @@
     color: #5aae29;
 }
 
-.wr-megamenu-container ul.wr-mega-menu ul.sub-menu li:hover {
-    background: #41a62a;
+@media screen and (min-width: 783px) {
+    .wr-megamenu-container ul.wr-mega-menu ul.sub-menu li:hover {
+        background: #41a62a;
+    }
 }
+
 .wr-megamenu-container .widget a {
     color: #000;
 }

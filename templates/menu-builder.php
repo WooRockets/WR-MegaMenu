@@ -15,7 +15,7 @@ wp_nonce_field( 'wr_mm_builder', WR_MEGAMENU_NONCE . '_builder' );
 $locations = get_registered_nav_menus();
 $menus     = wp_get_nav_menus();
 $data      = WR_Megamenu_Helpers_Builder::get_megamenu_data( $profile->ID );
-$menu_type = isset( $data['menu_type'] ) ? $data['menu_type'] : $menus[0]->term_id;
+$menu_type = isset( $data['menu_type'] ) ? $data['menu_type'] : ( isset( $menus[0]->term_id ) ? $menus[0]->term_id : '' );
 
 
 $tab_contents = array(

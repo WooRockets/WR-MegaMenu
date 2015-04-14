@@ -40,14 +40,20 @@
     width: 100%;
     display: inline-flex;
 }
-.wr-megamenu-container .block-sub-menu {
-    overflow: auto;
+.wr-megamenu-container .block-sub-menu:after {
+    content:' '; 
+    clear: both;
+    display: table;
 }
 .wr-megamenu-container ul.wr-mega-menu li {
     list-style: none;
 }
 
 @media only screen and (min-width: 783px) {
+    .wr-megamenu-container ul.wr-mega-menu li.wr-megamenu-item:hover > a.menu-item-link {
+        background-color: #111111;
+        color: #ffffff;
+    }
     .wr-megamenu-container ul.wr-mega-menu li:hover > ul.sub-menu,
     .wr-megamenu-container ul.wr-mega-menu li:hover > .wr-megamenu-inner {
         height: auto;
@@ -228,6 +234,7 @@ ul.sub-menu li a > i, ul.submenu-items li a > i {
 }
 .wr-element-submenu .submenu-items ul {
     margin-left: 0;
+    position: absolute !important;
 }
 .wr-element-submenu .submenu-items.has-sub > li > a {
     font-weight: bold;
@@ -308,7 +315,6 @@ ul.sub-menu li a > i, ul.submenu-items li a > i {
     .wr-megamenu-container ul li a {
         color: #ffffff;
     }
-    .wr-megamenu-container ul.wr-mega-menu li.wr-megamenu-item:hover > a.menu-item-link,
     .wr-megamenu-container ul.wr-mega-menu li.wr-megamenu-item > a.menu-item-link:hover {
         background-color: #111111;
         color: #ffffff;
@@ -366,9 +372,6 @@ ul.sub-menu li a > i, ul.submenu-items li a > i {
     .wr-megamenu-container ul.wr-mega-menu > li.wr-megamenu-item > a.menu-item-link {
         padding: 15px 10px;
     }
-    .wr-megamenu-container ul.wr-mega-menu ul.sub-menu a {
-        color: #ffffff;
-    }
     .wr-megamenu-container ul.sub-menu > li.wr-megamenu-item > a.menu-item-link {
         padding-left: 25px;
         text-align: left;
@@ -376,6 +379,13 @@ ul.sub-menu li a > i, ul.submenu-items li a > i {
         font-weight: normal;
         font-size: 13px;
         font-style: normal;
+    }
+    .wr-megamenu-container a.menu-item-link {
+        margin-right: 42px;
+        width: auto !important;
+    }
+    .wr-megamenu-container ul.wr-mega-menu ul.sub-menu a {
+        color: #ffffff;
     }
     .wr-megamenu-container ul.sub-menu ul > li.wr-megamenu-item > a.menu-item-link {
         padding-left: 40px;

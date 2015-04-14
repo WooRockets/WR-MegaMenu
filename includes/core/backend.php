@@ -23,6 +23,7 @@ class WR_Megamenu_Core_Backend {
 		add_action( 'admin_head',                 array( &$this, 'enqueue_script_nav_menu' ) );
 		add_action( 'wp_update_nav_menu_item',    array( &$this, 'save_nav_menu_item' ), 100, 3 );
 		add_filter( 'wp_setup_nav_menu_item',     array( &$this, 'setup_nav_item' ) );
+		add_action( 'admin_enqueue_scripts',      array( $this, 'remove_style_script' ), 9999 );
 		// hook saving post
 		add_action( 'save_post', array( &$this, 'save_default_profile' ) );
 
@@ -205,7 +206,7 @@ JS;
 	
 	public function save_nav_menu_item( $menu_id, $menu_item_db_id, $args ) {
 		if ( isset( $_POST['icon_mega'][ $menu_item_db_id ] ) ) {
-			update_post_meta( $menu_item_db_id, '_icon_mega_', sanitize_key( $_POST['icon_mega'][ $menu_item_db_id ] ) );
+			update_post_meta( $menu_item_db_id, '_icon_mega_', addslashes( $_POST['icon_mega'][ $menu_item_db_id ] ) );
 		}
 	}
 
@@ -857,6 +858,56 @@ JS;
 			}
 		}
 
+	}
+
+	/**
+	 * Remove the file styles and scripts not under Wr MegaMenu
+	 */
+	function remove_style_script(){
+		global $wp_scripts, $wp_styles, $post_type;
+		$post_type_get = ( isset( $_GET[ 'post_type' ] ) ) ? $_GET[ 'post_type' ]: '';
+	    if ( is_admin() && ( $post_type == 'wr_megamenu_profile' ) || ( $post_type_get == 'wr_megamenu_profile' ) ) {
+
+	        $wp_scripts_remove = (array) $wp_scripts;
+	        $wp_styles_remove = (array) $wp_styles;
+
+	        $url_theme = get_site_url() . '/wp-content/themes';
+	        $url_plugin = get_site_url() . '/wp-content/plugins';
+	        $url_plugin_mm = get_site_url() . '/wp-content/plugins/wr-megamenu';
+
+	        // Remove scripts
+	        if( isset( $wp_scripts_remove[ 'registered' ] ) && $wp_scripts_remove[ 'registered' ] ) {
+	            foreach( $wp_scripts_remove[ 'registered' ] as $key => $val ) {
+	                $val = (array) $val;
+	                $have_mm = strpos( $val[ 'src' ], $url_plugin_mm );
+	                if( $have_mm === FALSE ) {
+	                    $have_theme = strpos( $val[ 'src' ], $url_theme );
+	                    $have_plugin = strpos( $val[ 'src' ], $url_plugin );
+	                    if( $have_theme === 0 || $have_plugin === 0 ) {
+	                        wp_deregister_script( $key );
+	                        wp_dequeue_script( $key );
+	                    }
+	                }
+	            }
+	        }
+
+	        // Remove styles
+	        if( isset( $wp_styles_remove[ 'registered' ] ) && $wp_styles_remove[ 'registered' ] ) {
+	            foreach( $wp_styles_remove[ 'registered' ] as $key => $val ) {
+	                $val = (array) $val;
+	                $have_mm = strpos( $val[ 'src' ], $url_plugin_mm );
+	                if( $have_mm === FALSE ) {
+	                    $have_theme = strpos( $val[ 'src' ], $url_theme );
+	                    $have_plugin = strpos( $val[ 'src' ], $url_plugin );
+	                    if( $have_theme === 0 || $have_plugin === 0 ) {
+	                        wp_deregister_style( $key );
+	                        wp_dequeue_style( $key );
+	                    }
+	                }
+	            }
+	        }
+	    
+	    }
 	}
 
 }

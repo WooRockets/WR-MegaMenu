@@ -15,6 +15,8 @@ class WR_Megamenu_Core_Frontend {
 	private $profile_id = 0;
 
 	private $settings = null;
+
+	private $echo = null;
 	
 	/**
 	 * Mega a menu in a location if mapped
@@ -36,6 +38,13 @@ class WR_Megamenu_Core_Frontend {
 		$this->profile_id = WR_Megamenu_Helpers_Functions::get_profile_by_location( $args['theme_location'] );
 
 		if ( $this->profile_id ) {
+
+			// Show only once in one location
+			if ( $this->echo == $args['theme_location'] ) {
+				$args['echo'] = FALSE;
+			}
+			$this->echo = $args['theme_location'];
+			
 			$args['profile_id'] = $this->profile_id;
 			$this->settings	    = WR_Megamenu_Helpers_Builder::get_megamenu_data( $this->profile_id );
 			// load assets for a profile
@@ -96,7 +105,7 @@ class WR_Megamenu_Core_Frontend {
 	}
 
 	function load_base_assets() {
-		WR_Megamenu_Init_Assets::load( array( 'wr-bootstrap3-frontend-js', 'wr-mm-bootstrap3-icomoon-css', 'wr-megamenu-site-css', 'wr-megamenu-site-js' ) );
+		WR_Megamenu_Init_Assets::load( array( 'wr-bootstrap3-frontend-js', 'wr-mm-bootstrap3-icomoon-css', 'wr-font-awesome-css', 'wr-megamenu-site-css', 'wr-megamenu-site-js' ) );
 	}
 
 	public function load_profile_assets() {

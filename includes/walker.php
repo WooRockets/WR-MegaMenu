@@ -33,10 +33,10 @@ class WR_Megamenu_Walker extends Walker_Nav_Menu {
 			} else {
 				$output .= '<ul class="sub-menu sub-menu-' . ( $depth + 1 ) . '" ' . $this->style . '>';
 			}
-		} else if ( ( $depth == 1 || $depth == 2 ) && $this->is_mega ) {
+		} else if ( $this->is_mega ) {
 			$output .= '';
 		} else {
-			$output .= '<ul class="sub-menu sub-menu-' . ( $depth ) . '">';
+			$output .= '<ul class="sub-menu abcddafasdf sub-menu-' . ( $depth ) . '">';
 		}
 	}
 
@@ -55,7 +55,7 @@ class WR_Megamenu_Walker extends Walker_Nav_Menu {
 			} else {
 				$output .= '</ul>';
 			}
-		} else  if ( ( $depth == 1 || $depth == 2 ) && $this->is_mega ) {
+		} else if ( $this->is_mega ) {
 			$output .= '';
 		} else {
 			$output .= '</ul>';
@@ -145,7 +145,7 @@ class WR_Megamenu_Walker extends Walker_Nav_Menu {
 	 * @param array $args An array of arguments. @see wp_nav_menu()
 	 */
 	function end_el( &$output, $item, $depth = 0, $args = array() ) {
-		if ( ( $depth == 1 || $depth == 2 ) && $this->is_mega ) {
+		if ( $depth != 0 && $this->is_mega ) {
 			$output .= '';
 		} else {
 			$output .= '</li>';

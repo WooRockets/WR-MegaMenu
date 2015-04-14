@@ -76,7 +76,7 @@ class WR_Megamenu_Helpers_Modal
 	public function enqueue_assets() {
 		WR_Megamenu_Init_Assets::load( array( 'wr-mm-bootstrap3-css', 'wr-bootstrap3-js', 'wr-joomlashine-css' ) );
 		WR_Megamenu_Init_Assets::load( array( 'wr-jquery-ui-css', 'wr-megamenu-modal-css', 'wr-mm-css' ) );
-		WR_Megamenu_Init_Assets::load( array( 'wr-bootstrap3-icomoon-css', 'wr-mm-admin-css' ) );
+		WR_Megamenu_Init_Assets::load( array( 'wr-bootstrap3-icomoon-css', 'wr-font-awesome-css', 'wr-mm-admin-css' ) );
 		WR_Megamenu_Init_Assets::load( array( 'wr-jquery-ui-css', 'wr-jquery-select2-css', 'wr-jquery-select2-bootstrap3-css' ) );
 		WR_Megamenu_Init_Assets::load( array( 'wr-mm-jqueryfancybox-css' ) );
 
