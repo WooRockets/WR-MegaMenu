@@ -231,7 +231,6 @@ class WR_Submenu extends WR_Megamenu_Shortcode_Element {
 				$html[] = '<a class="'.$parent_class.' caption" href="'.$menu_item->url.'" title="'.$menu_item->title.'"><span class="'.$caption_class.'">' . $icon_html . $menu_title . '</span></a>';
 				$html[] = '<div class="clearfix"></div>';
 				$html[] = '<span class="divider"></span>';
-				$html[] = '<ul class="'.$class.' ">';
 
 				$args     = array();
 				$defaults = array( 'menu' => '', 'container' => 'div', 'container_class' => '', 'container_id' => '', 'menu_class' => 'menu', 'menu_id' => '', 'echo' => true, 'fallback_cb' => 'wp_page_menu', 'before' => '', 'after' => '', 'link_before' => '', 'link_after' => '', 'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>', 'depth' => 0, 'walker' => '', 'theme_location' => '' );
@@ -243,9 +242,15 @@ class WR_Submenu extends WR_Megamenu_Shortcode_Element {
 				$args['column_breaking']  = $column_breaking;
 				$args['no_of_column']     = $no_of_column;
 				$args['items_per_column'] = $items_per_column;
+                                
+                $submenu_items_elment = $this->wr_walk_submenu_child( $items, 0, (object) $args );
+                
+                if( $submenu_items_elment ) {
+                    $html[] = '<ul class="'.$class.' ">';
+                    $html[] = $submenu_items_elment;
+                    $html[] = '</ul>';
+                }
 
-				$html[] = $this->wr_walk_submenu_child( $items, 0, (object) $args );
-				$html[] = '</ul>';
 				$html[] = '</div>';
 			}
 		} else {

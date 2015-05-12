@@ -22,7 +22,7 @@ class WR_Megamenu_Helpers_Html_Icons extends WR_Megamenu_Helpers_Html {
 		$item_id = isset($element['item_id']) ? $element['item_id'] : '';
 		$icon_id = ($item_id != '' ) ? '-' . $item_id : '';
 		$output  = "<div id='icon_selector".$icon_id."' class='icon_selector' data-item_id='".$item_id."'>
-			<input type='hidden' value='{$element['std']}' id='{$element['id']}' name='{$element['id']}'  DATA_INFO />
+			<input type='hidden' value='{$element['std']}' id='{$element['id']}' DATA_INFO />
 		</div>";
 		if ( WR_Megamenu_Helpers_Functions::is_modal() ) {
 			add_filter( 'wr_mm_assets_enqueue_modal', array( __CLASS__, 'enqueue_assets_modal' ) );

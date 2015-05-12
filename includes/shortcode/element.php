@@ -382,7 +382,11 @@ class WR_Megamenu_Shortcode_Element extends WR_Megamenu_Shortcode_Abstract {
 		$params = WR_Megamenu_Helpers_Shortcode::generate_shortcode_params( $this->items, null, null, false, true );
 		// add Margin parameter for Not child shortcode
 		if ( strpos( $this->config['shortcode'], '_item' ) === false ) {
-			$this->config['params'] = array_merge( array( 'div_margin_top' => '10', 'div_margin_bottom' => '10', 'disabled_el' => 'no', 'css_suffix' => '', 'id_wrapper' => '' ), $params );
+			if( $this->config['shortcode'] == 'wr_submenu' ){
+				$this->config['params'] = array_merge( array( 'disabled_el' => 'no', 'css_suffix' => '', 'id_wrapper' => '' ), $params );
+			} else {
+				$this->config['params'] = array_merge( array( 'div_margin_top' => '10', 'div_margin_bottom' => '10', 'disabled_el' => 'no', 'css_suffix' => '', 'id_wrapper' => '' ), $params );
+			}
 		}
 		else {
 			$this->config['params'] = $params;

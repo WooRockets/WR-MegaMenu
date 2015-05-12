@@ -889,11 +889,26 @@
                             var inputIcon  = $this.find(":hidden").first();
 
                             var actionSelector = $.proxy(function (_this) {
+                                var value_icon = $(_this).attr("data-value");
                                 $(_this).parents(".jsn-items-list").find(".active").removeClass("active");
                                 $(_this).parent().addClass("active");
-                                inputIcon.val($(_this).attr("data-value"));
+                                inputIcon.val( value_icon );
                                 $(_this).parents(".wr-icon").find(".panel-heading .panel-title i").removeClass();
                                 $(_this).parents(".wr-icon").find(".panel-heading .panel-title i").addClass($(_this).attr("data-value"));
+                                
+                                //Inser icon
+                                var post_id = $(_this).parents('.icon_selector').attr('data-item_id');
+                                $.ajax( {
+                                        type   : "POST",
+                                        url    : Wr_Megamenu_Ajax.ajaxurl,
+                                        data   : {
+                                                action         : 'wr_megamenu_insert_icons_database',
+                                                post_id        : post_id,
+                                                value_icon     : value_icon,
+                                                wr_nonce_check : Wr_Megamenu_Ajax._nonce
+                                        },
+                                        success: function (data) { }
+                                } );
                             }, this);
 
                             $this.append(iconSelector.GenerateSelector($this, actionSelector, inputIcon.val()));

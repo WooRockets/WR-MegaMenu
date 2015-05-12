@@ -21,9 +21,7 @@ class WR_Megamenu_Core_Backend {
 		add_action( 'admin_init',                 array( &$this, 'modal_register' ) );
 		add_action( 'edit_form_after_title',      array( &$this, 'edit_form_megamenu_editor' ) );
 		add_action( 'admin_head',                 array( &$this, 'enqueue_script_nav_menu' ) );
-		add_action( 'wp_update_nav_menu_item',    array( &$this, 'save_nav_menu_item' ), 100, 3 );
 		add_filter( 'wp_setup_nav_menu_item',     array( &$this, 'setup_nav_item' ) );
-		add_action( 'admin_enqueue_scripts',      array( $this, 'remove_style_script' ), 9999 );
 		// hook saving post
 		add_action( 'save_post', array( &$this, 'save_default_profile' ) );
 
@@ -36,6 +34,7 @@ class WR_Megamenu_Core_Backend {
 		add_action( 'wp_ajax_wr_megamenu_get_shortcode_tpl',  array( &$this, 'get_shortcode_tpl' ) );
 		add_action( 'wp_ajax_wr_megamenu_get_json_custom',    array( &$this, 'ajax_json_custom' ) );
 		add_action( 'wp_ajax_wr_megamenu_get_menu_icons',     array( &$this, 'ajax_get_menu_icon' ) );
+        add_action( 'wp_ajax_wr_megamenu_insert_icons_database',     array( &$this, 'ajax_insert_icons_database' ) );
 		
 		// get image size
 		add_filter( 'wr_mm_get_json_image_size',           array( &$this, 'get_image_size' ) );
@@ -162,6 +161,20 @@ JS;
 		
 		exit;
 	}
+    
+    /**
+	 * Insert-icon-database
+	 * 
+	 * 
+	 */
+	function ajax_insert_icons_database() {
+                $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
+                $value_icon = isset($_POST['value_icon']) ? $_POST['value_icon'] : 0;
+                if( $post_id && $value_icon ) {
+                    update_post_meta($post_id, '_icon_mega_', addslashes( $value_icon ) );
+                }
+		exit;
+	}
 	
 	/**
 	 * Get image size
@@ -202,12 +215,6 @@ JS;
 		$menu_item->icon = $icon;
 	
 		return $menu_item;
-	}
-	
-	public function save_nav_menu_item( $menu_id, $menu_item_db_id, $args ) {
-		if ( isset( $_POST['icon_mega'][ $menu_item_db_id ] ) ) {
-			update_post_meta( $menu_item_db_id, '_icon_mega_', addslashes( $_POST['icon_mega'][ $menu_item_db_id ] ) );
-		}
 	}
 
 	public function enqueue_script_nav_menu() {
@@ -470,7 +477,7 @@ JS;
 		extract( $_POST );
 		$settings = array();
 		parse_str( $setting_menu, $output );
-		$settings['is_mega']           = $is_mega;
+		if( isset($is_mega ) ) $settings['is_mega'] = $is_mega;
 		$settings['setting_menu']      = $output;
 		$settings['shortcode_content'] = $shortcode_content;
 
@@ -858,56 +865,6 @@ JS;
 			}
 		}
 
-	}
-
-	/**
-	 * Remove the file styles and scripts not under Wr MegaMenu
-	 */
-	function remove_style_script(){
-		global $wp_scripts, $wp_styles, $post_type;
-		$post_type_get = ( isset( $_GET[ 'post_type' ] ) ) ? $_GET[ 'post_type' ]: '';
-	    if ( is_admin() && ( $post_type == 'wr_megamenu_profile' ) || ( $post_type_get == 'wr_megamenu_profile' ) ) {
-
-	        $wp_scripts_remove = (array) $wp_scripts;
-	        $wp_styles_remove = (array) $wp_styles;
-
-	        $url_theme = get_site_url() . '/wp-content/themes';
-	        $url_plugin = get_site_url() . '/wp-content/plugins';
-	        $url_plugin_mm = get_site_url() . '/wp-content/plugins/wr-megamenu';
-
-	        // Remove scripts
-	        if( isset( $wp_scripts_remove[ 'registered' ] ) && $wp_scripts_remove[ 'registered' ] ) {
-	            foreach( $wp_scripts_remove[ 'registered' ] as $key => $val ) {
-	                $val = (array) $val;
-	                $have_mm = strpos( $val[ 'src' ], $url_plugin_mm );
-	                if( $have_mm === FALSE ) {
-	                    $have_theme = strpos( $val[ 'src' ], $url_theme );
-	                    $have_plugin = strpos( $val[ 'src' ], $url_plugin );
-	                    if( $have_theme === 0 || $have_plugin === 0 ) {
-	                        wp_deregister_script( $key );
-	                        wp_dequeue_script( $key );
-	                    }
-	                }
-	            }
-	        }
-
-	        // Remove styles
-	        if( isset( $wp_styles_remove[ 'registered' ] ) && $wp_styles_remove[ 'registered' ] ) {
-	            foreach( $wp_styles_remove[ 'registered' ] as $key => $val ) {
-	                $val = (array) $val;
-	                $have_mm = strpos( $val[ 'src' ], $url_plugin_mm );
-	                if( $have_mm === FALSE ) {
-	                    $have_theme = strpos( $val[ 'src' ], $url_theme );
-	                    $have_plugin = strpos( $val[ 'src' ], $url_plugin );
-	                    if( $have_theme === 0 || $have_plugin === 0 ) {
-	                        wp_deregister_style( $key );
-	                        wp_dequeue_style( $key );
-	                    }
-	                }
-	            }
-	        }
-	    
-	    }
 	}
 
 }

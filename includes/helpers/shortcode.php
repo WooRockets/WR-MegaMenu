@@ -497,7 +497,7 @@ if ( ! class_exists( 'WR_Megamenu_Helpers_Shortcode' ) ) {
 		 * @param string $content html content by the wordpress editor
 		 * @return string $content
 		 */
-		static function remove_autop( $content )
+		static function remove_autop( $content, $element_text = false )
 		{
 			$shortcode_tags = array();
 			$tagregexp	  = join( '|', array_map( 'preg_quote', $shortcode_tags ) );
@@ -508,7 +508,7 @@ if ( ! class_exists( 'WR_Megamenu_Helpers_Shortcode' ) ) {
 			// closing tag
 			$content = preg_replace( "/(<p>)?\[\/($tagregexp)](<\/p>|<br\s\/>)?/", '[/$2]', $content );
 
-			$content = do_shortcode( shortcode_unautop( $content ) );
+			$content = $element_text ? do_shortcode( wpautop( $content ) ) : do_shortcode( shortcode_unautop( $content ) );
 			$content = preg_replace( '#^<\/p>|^<br\s?\/?>|<p>$|<p>\s*(&nbsp;)?\s*<\/p>#', '', $content );
 
 			return ( $content );

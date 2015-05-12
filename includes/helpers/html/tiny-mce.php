@@ -23,7 +23,6 @@ class WR_Megamenu_Helpers_Html_Tiny_Mce extends WR_Megamenu_Helpers_Html {
 		if ( @ $element['exclude_quote'] == '1' ) {
 			$element['std'] = str_replace( '<wr_quote>', '"', $element['std'] );
 		}
-		$element['std'] = str_replace( "\n", '<br>', $element['std'] );
 
 		$settings = array(
 			'textarea_name' => $element['id'],

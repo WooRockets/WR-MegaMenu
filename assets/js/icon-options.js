@@ -36,46 +36,65 @@
 	};
 	
 	window.wr_ajax_insert_icon = function ( item_id ) {
-		if ( ! item_id ) {
-			// Get all item ids
-			var arr_ids = [];
-			$('li.menu-item').each(function () {
-				var id = $(this).attr('id');
-				id     = id.replace('menu-item-', '');
-				id     = parseInt( id );
-				if ( typeof( id ) != 'NaN') {
-					arr_ids.push( id );
-				}
-			});
-		}
-		
-		if ( arr_ids ) {
-			var item_ids = arr_ids.join(',');
-			// Send request ajax for get icons collapse accordion html
-			$.ajax({
-				type   : "POST",
-				url    : Wr_Megamenu_Ajax.ajaxurl,
-				data   : {
-					action         : 'wr_megamenu_get_menu_icons',
-					item_ids       : item_ids,
-					wr_nonce_check : Wr_Megamenu_Ajax._nonce
-				},
-				success: function (data) {
-					data = ( data ) ? JSON.parse( data ) : '';
-					if ( data ) {
-						for( var i = 0; i < data.length; i++ ) {
-							if ( data[i].id ) {
-								var element = $( '#menu-item-' + data[i].id + ' .jsn-bootstrap3' );
-								element.removeClass('wr-icon-wrapper');
-								element.removeClass('wr-text-center');
-								element.html( data[i].html );
-							}
-						}
+
+		var arr_locations = [];
+		$('.menu-theme-locations input[type="checkbox"]:checked').each(function(){
+			var location = $(this).attr('id').replace( 'locations-', '' );
+			arr_locations.push( location );
+		});
+
+		if( arr_locations ) {
+
+			var location_string = arr_locations.join(',');
+
+			if ( ! item_id ) {
+				// Get all item ids
+				var arr_ids = [];
+				$('li.menu-item').each(function () {
+					var id = $(this).attr('id');
+					id     = id.replace('menu-item-', '');
+					id     = parseInt( id );
+					if ( typeof( id ) != 'NaN') {
+						arr_ids.push( id );
 					}
-					
-					$('body').trigger('init_jsn_icon_selector');
-               }
-           });
+				});
+			}
+			
+			if ( arr_ids ) {
+				var item_ids = arr_ids.join(',');
+				// Send request ajax for get icons collapse accordion html
+				$.ajax({
+					type   : "POST",
+					url    : Wr_Megamenu_Ajax.ajaxurl,
+					data   : {
+						action         : 'wr_megamenu_get_menu_icons',
+						item_ids       : item_ids,
+						wr_nonce_check : Wr_Megamenu_Ajax._nonce,
+						locations	   : location_string
+					},
+					success: function (data) {
+						if( data == 'not_show' ){
+							$( ".wr-icon-wrapper" ).remove();
+						} else {
+							data = ( data ) ? JSON.parse( data ) : '';
+							if ( data ) {
+								for( var i = 0; i < data.length; i++ ) {
+									if ( data[i].id ) {
+										var element = $( '#menu-item-' + data[i].id + ' .jsn-bootstrap3' );
+										element.removeClass('wr-icon-wrapper');
+										element.removeClass('wr-text-center');
+										element.html( data[i].html );
+									}
+								}
+							}
+							
+							$('body').trigger('init_jsn_icon_selector');
+						}
+	               }
+	           });
+			}
+		} else {
+			$( ".wr-icon-wrapper" ).remove();
 		}
 	};
 	

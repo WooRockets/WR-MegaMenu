@@ -96,4 +96,7 @@ For further information, product details, help and tutorials, please visit our w
  * Fixed Double click to open dropdown menu on IOS
  * Fixed Bugs with some popular themes
  * Fixed Display in submenu level 3
-	
+
+= 1.1.1 =
+ * Improved interaction with icon selector
+ * Fixed Active menu cannot be saved after elements added

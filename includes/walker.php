@@ -36,7 +36,7 @@ class WR_Megamenu_Walker extends Walker_Nav_Menu {
 		} else if ( $this->is_mega ) {
 			$output .= '';
 		} else {
-			$output .= '<ul class="sub-menu abcddafasdf sub-menu-' . ( $depth ) . '">';
+			$output .= '<ul class="sub-menu sub-menu-' . ( $depth ) . '">';
 		}
 	}
 

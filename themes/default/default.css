@@ -10,7 +10,6 @@
  */
 
 .wr-megamenu-container {
-    background: #000;
     text-align: left;
 }
 .wr-megamenu-container ul.wr-mega-menu ul.sub-menu,
@@ -27,8 +26,8 @@
 }
 
 @media screen and (min-width: 783px) {
-    .wr-megamenu-container ul.wr-mega-menu ul.sub-menu li:hover {
-        background: #41a62a;
+    .wr-megamenu-container ul.wr-mega-menu ul.sub-menu li:hover a { 
+        color: #41a62a;
     }
 }
 

@@ -201,7 +201,7 @@ if ( ! class_exists( 'WR_Megamenu_Text' ) ) {
 			$script	   = $html_element = '';
 			
 			if ( ! empty( $content ) ) {
-				$content = WR_Megamenu_Helpers_Shortcode::remove_autop( $content );
+				$content = WR_Megamenu_Helpers_Shortcode::remove_autop( $content, true );
 			}
 			
 			$html_element_style = '<style type="text/css">';
