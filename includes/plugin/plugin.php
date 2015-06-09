@@ -103,14 +103,106 @@ class WR_Megamenu_Plugin {
 	 * @return void
 	 */
 	public static function insert_banner() {
-		$banner1 = '<img width=\"278\" height=\"156\" src=\"' . WR_MEGAMENU_ROOT_URL . 'assets/woorockets/images/banners/ContactForm_S.jpg' . '\" alt=\"Contact Form\" />';
-		$link1 = '<a style=\"display: block; margin: 0px 1px 20px 1px; line-height: 0;\" href=\"http://www.woorockets.com/plugins/wr-contactform/?utm_source=MegaMenu%20Edit%20Page&utm_medium=banner&utm_campaign=Cross%20Promo%20Plugins\" target=\"_blank\">' . $banner1 . '</a>';
-		$banner2 = '<img width=\"278\" height=\"156\" src=\"' . WR_MEGAMENU_ROOT_URL . 'assets/woorockets/images/banners/PageBuilder_S.jpg' . '\" alt=\"Page Builder\" />';
-		$link2 = '<a style=\"display: block; margin: 0px 1px 20px 1px; line-height: 0;\" href=\"http://www.woorockets.com/plugins/wr-pagebuilder/?utm_source=MegaMenu%20Edit%20Page&utm_medium=banner&utm_campaign=Cross%20Promo%20Plugins\" target=\"_blank\">' . $banner2 . '</a>';
-		$banner3 = '<img width=\"278\" height=\"156\" src=\"' . WR_MEGAMENU_ROOT_URL . 'assets/woorockets/images/banners/Corsa_S.jpg' . '\" alt=\"Corsa\" />';
-		$link3 = '<a style=\"display: block; margin: 0px 1px 20px 1px; line-height: 0;\" href=\"http://www.woorockets.com/themes/corsa/?utm_source=MegaMenu%20Edit%20Page&utm_medium=banner&utm_campaign=Cross%20Promo%20Plugins\" target=\"_blank\">' . $banner3 . '</a>';
+
+		$style = '
+			/*** Premium ***/
+			#wr-promo-ab {
+				background: url(' . WR_MEGAMENU_ROOT_URL . 'assets/woorockets/images/about-us/bg-wr-promo-2.jpg) center top no-repeat;
+				background-size: auto 100%;
+				text-align: center;
+				overflow: hidden;
+				font-family: \'Open Sans\', \'Helvetica Neue\', Helvetica, Arial, sans-serif;
+			}
+			#wr-promo-ab h3 {
+			    margin: 180px 0 15px;
+			    color: #fff;
+			    font-size: 25px;
+			    font-weight: bold;
+			}
+			#wr-promo-ab ul {
+			    margin: 0 auto 25px auto;
+			    padding: 0;
+			    list-style: none;
+			    color: #6c7885;
+			    width: 250px;
+			}
+			#wr-promo-ab li {
+			    line-height: 31px;
+			    margin: 0 5px 10px;
+			    text-align: left;
+			    list-style: none;
+			    background: none;
+			    padding: 0;
+			}
+			#wr-promo-ab li span {
+			    background: #6c7886;
+			    float: left;
+			    border-radius: 50%;
+			    -o-border-radius: 50%;
+			    -ms-border-radius: 50%;
+			    -moz-border-radius: 50%;
+			    -webkit-border-radius: 50%;
+			    margin: 0 5px 0 0;
+			}
+			#wr-promo-ab li img {
+			    margin: 8px;
+			    float: left !important;
+			}
+			#wr-promo-ab .btn-premium {
+			    margin: 0 0 78px 0;
+			}
+			#wr-promo-ab .btn-premium a {
+				display: inline-block;
+				margin: 0 10px;
+				background: #418858;
+				color: #fff;
+				padding: 10px 5px;
+				border-radius: 3px;
+				-o-border-radius: 3px;
+				-ms-border-radius: 3px;
+				-moz-border-radius: 3px;
+				-webkit-border-radius: 3px;
+				font-size: 11px;
+				box-shadow: 0 4px 0 0 #2a6d40;
+				-o-box-shadow: 0 4px 0 0 #2a6d40;
+				-ms-box-shadow: 0 4px 0 0 #2a6d40;
+				-moz-box-shadow: 0 4px 0 0 #2a6d40;
+				-webkit-box-shadow: 0 4px 0 0 #2a6d40;
+				text-decoration: none;
+				transition: all 0.3s;
+				-o-transition: all 0.3s;
+				-ms-transition: all 0.3s;
+				-moz-transition: all 0.3s;
+				-webkit-transition: all 0.3s;
+			}
+			#wr-promo-ab .btn-premium strong {
+			    font-size: 18px;
+			}
+			#wr-promo-ab .btn-premium a:hover {
+			    background: #2a6d40;
+			    text-decoration:none;
+			    box-shadow: 0 4px 0 0 #418858;
+			    -o-box-shadow: 0 4px 0 0 #418858;
+			    -ms-box-shadow: 0 4px 0 0 #418858;
+			    -moz-box-shadow: 0 4px 0 0 #418858;
+			    -webkit-box-shadow: 0 4px 0 0 #418858;
+			}
+			@media only screen and (max-width: 1200px) and (min-width: 768px), (max-device-width: 1200px) and (max-device-width: 768px) {
+				#wr-promo-ab .btn-premium a {
+					padding: 10px 0;
+					margin: 0 10px;
+				}
+				#wr-promo-ab .btn-premium strong {
+					font-size:16px;
+				}
+			}
+        ';
+		WR_Megamenu_Init_Assets::inline( 'css', $style );
+
+		$content = '<div id=\"wr-promo-ab\"><h3>Premium<br> WooCommerce Themes</h3><ul><li><span><img src=\"' . WR_MEGAMENU_ROOT_URL . 'assets/woorockets/images/about-us/excellent-icon.png\"></span>Excellent designs</li><li><span><img src=\"' . WR_MEGAMENU_ROOT_URL . 'assets/woorockets/images/about-us/unlimited-icon.png\"></span>Unlimited customization ability</li><li><span><img src=\"' . WR_MEGAMENU_ROOT_URL . 'assets/woorockets/images/about-us/additional-icon.png\"></span>Additional eCommerce features</li></ul><p class=\"btn-premium\"><a href=\"http://www.woorockets.com/themes/?utm_source=MegaMenu&utm_medium=Editor&utm_campaign=Cross%20Promo%20Banner\" target=\"_blank\"><strong>View the collection now</strong><br><span>And learn how our themes can boost your business!</span></a></p></div>';
+
 		$script = '
-			$("#side-sortables").append("' . $link1 . $link2 . $link3 . '");
+			$("#side-sortables").append("' . $content . '");
 		';
 		WR_Megamenu_Init_Assets::inline( 'js', $script );
 	}

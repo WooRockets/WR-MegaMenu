@@ -161,31 +161,16 @@
 		</div>
 	</div>
 
-	<div id="our-blog">
-		<div class="left-ourblog">
-			<a target="_blank" class="link" href="http://www.woorockets.com/blog/?utm_source=MegaMenu%20About&utm_medium=banner&utm_campaign=Cross%20Promo%20Plugins"></a>
-			<h3><?php _e( 'Learn more from', WR_MEGAMENU_TEXTDOMAIN ); ?> <strong><?php _e( 'OUR BLOG', WR_MEGAMENU_TEXTDOMAIN ); ?></strong></h3>
-			<span></span>
-			<p><?php _e( 'Follow our blog for latest news, tutorials & interviews about WooComerce & WordPress', WR_MEGAMENU_TEXTDOMAIN ); ?></p>
-		</div>
-		<div class="right-ourblog">
-			<h3><?php _e( 'SEE OUR OTHER AWESOMENESS', WR_MEGAMENU_TEXTDOMAIN ); ?></h3>
-			<span>***</span>
-			<div class="list-product">
-				<div class="item-product">
-					<div class="img-product"><a target="_blank" href="http://www.woorockets.com/freebie/?utm_source=MegaMenu%20About&utm_medium=banner&utm_campaign=Cross%20Promo%20Plugins"><img src="<?php echo WR_MEGAMENU_ROOT_URL . 'assets/woorockets/images/about-us/freebies.png'; ?>"  /></a></div>
-					<h4><a target="_blank" href="http://www.woorockets.com/freebie/?utm_source=MegaMenu%20About&utm_medium=banner&utm_campaign=Cross%20Promo%20Plugins"><?php _e( 'Freebies download', WR_MEGAMENU_TEXTDOMAIN ); ?></a></h4>
-				</div>
-				<div class="item-product">
-					<div class="img-product"><a target="_blank" href="http://www.woorockets.com/plugins/wr-pagebuilder/?utm_source=MegaMenu%20About&utm_medium=banner&utm_campaign=Cross%20Promo%20Plugins"><img src="<?php echo WR_MEGAMENU_ROOT_URL . 'assets/woorockets/images/about-us/page-builder.png'; ?>"  /></a></div>
-					<h4><a target="_blank" href="http://www.woorockets.com/plugins/wr-pagebuilder/?utm_source=MegaMenu%20About&utm_medium=banner&utm_campaign=Cross%20Promo%20Plugins">WR PageBuilder</a></h4>
-				</div>
-				<div class="item-product">
-					<div class="img-product"><a target="_blank" href="http://www.woorockets.com/themes/corsa/?utm_source=MegaMenu%20About&utm_medium=banner&utm_campaign=Cross%20Promo%20Plugins"><img src="<?php echo WR_MEGAMENU_ROOT_URL . 'assets/woorockets/images/about-us/corsa.png'; ?>"  /></a></div>
-					<h4><a target="_blank" href="http://www.woorockets.com/themes/corsa/?utm_source=MegaMenu%20About&utm_medium=banner&utm_campaign=Cross%20Promo%20Plugins"><?php _e( 'Corsa theme', WR_MEGAMENU_TEXTDOMAIN ); ?></a></h4>
-				</div>
-			</div>
-		</div>
+	<div id="wr-promo-ab">
+			<h3>Premium<br>
+			WooCommerce Themes</h3>
+			<ul>
+				<li><span><img src="<?php echo WR_MEGAMENU_ROOT_URL; ?>assets/woorockets/images/about-us/excellent-icon.png"></span>Excellent designs</li>
+				<li><span><img src="<?php echo WR_MEGAMENU_ROOT_URL; ?>assets/woorockets/images/about-us/unlimited-icon.png"></span>Unlimited customization ability</li>
+				<li><span><img src="<?php echo WR_MEGAMENU_ROOT_URL; ?>assets/woorockets/images/about-us/additional-icon.png"></span>Additional eCommerce features</li>
+			</ul>
+			<p class="btn-premium"><a href="http://www.woorockets.com/themes/?utm_source=MegaMenu&utm_medium=About&utm_campaign=Cross%20Promo%20Banner" target="_blank"><strong>View the collection now</strong><br>
+			<span>And learn how our themes can boost your business!</span></a></p>
 	</div>
 
 	<div id="wr-logo">

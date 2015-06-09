@@ -39,7 +39,7 @@ WR Mega Menu is a Powerful, Responsive, and User-Oriented WordPress menu plugin 
 > <strong>Get Involved</strong>
 
 > * <b>Fork on Github</b>: WR MegaMenu source code is published on <a href="http://github.com/WooRockets/WR-MegaMenu">Github</a> and is always updated to latest version. Feel free to use our plugin to server any of your purposes. Your engagement is always welcome!
-> * <b>Help translate on Transifex</b>: Make WR MegaMenu better for local communities by translating it to different languages. Your help will make it easier for thousands of WordPress users. Sign up and give us a hand <a href="http://www.transifex.com/projects/p/wr-megamenu/">here</a>.
+> * <b>Help bring this plugin to the world</b>: Help many WordPress users in your community by translating it into your languages. The source file is available on <a href="https://github.com/WooRockets/Translation-file-WR-MegaMenu">GitHub</a>. <strong>Note:</strong> The project for WR Mega Menu is no longer maintained on Transifex.com.
 
 <i>*<a href="https://wordpress.org/support/view/plugin-reviews/wr-megamenu">If you like the plugin, please vote for it!</a>*</i>
 
@@ -100,3 +100,6 @@ For further information, product details, help and tutorials, please visit our w
 = 1.1.1 =
  * Improved interaction with icon selector
  * Fixed Active menu cannot be saved after elements added
+
+= 1.1.2 =
+ * Changed banners in back-end

@@ -362,19 +362,10 @@ class WR_Megamenu_Helpers_Modal
 				<hr />
 				<div class="pull-left">
 					<div>
-						<a target="_blank" href="http://www.woorockets.com/plugins/wr-megamenu/?utm_source=MegaMenu%20Backend&utm_medium=Text&utm_campaign=Powered%20By">' . __( 'WR MegaMenu', WR_MEGAMENU_TEXTDOMAIN ) . '</a> by 
-						<a target="_blank" href="http://www.woorockets.com/?utm_source=MegaMenu%20Backend&utm_medium=Text&utm_campaign=Powered%20By">' . __( 'WooRockets.com', WR_MEGAMENU_TEXTDOMAIN ) . '</a>
-					</div>
-					<div>
-						<a target="_blank" href="http://www.woorockets.com/docs/wr-megamenu-user-manual/?utm_source=MegaMenu%20Backend&utm_medium=Text&utm_campaign=Powered%20By">' . __( 'Documentation', WR_MEGAMENU_TEXTDOMAIN ) . '</a> |
-						<a target="_blank" href="http://www.woorockets.com/forum/product-support/wr-megamenu/?utm_source=MegaMenu%20Backend&utm_medium=Text&utm_campaign=Powered%20By">' . __( 'Support', WR_MEGAMENU_TEXTDOMAIN ) . '</a>
+						Powered by 
+						<a target="_blank" href="http://www.woorockets.com/?utm_source=MegaMenu%20Backend&utm_medium=Text&utm_campaign=Powered%20By">' . __( 'WooRockets.com', WR_MEGAMENU_TEXTDOMAIN ) . '</a> | <a target="_blank" href="http://www.woorockets.com/docs/wr-megamenu-user-manual/?utm_source=MegaMenu%20Backend&utm_medium=Text&utm_campaign=Powered%20By">' . __( 'Documentation', WR_MEGAMENU_TEXTDOMAIN ) . '</a>
 					</div>
 				</div>
-				<div class="pull-right">
-					<span class="wr-other-free-plugins-text">Other free plugins</span>
-					<a class="wr-logo-40 contactform" href="http://www.woorockets.com/plugins/wr-contactform/?utm_source=MegaMenu%20Footer&utm_medium=icon&utm_campaign=Cross%20Promo%20Plugins" target="_blank"></a>
-					<a class="wr-logo-40 pagebuilder" href="http://www.woorockets.com/plugins/wr-pagebuilder/?utm_source=MegaMenu%20Footer&utm_medium=icon&utm_campaign=Cross%20Promo%20Plugins" target="_blank"></a>
-	 			</div>
 				<div class="clearbreak"></div>
 			</div>';
 		
