@@ -570,6 +570,9 @@
                 case 'Google Font':
                     dataOptions = getGoogleOptions();
                     break;
+                default:
+                    dataOptions = getStandardOptions();
+                    break;
             }
             ;
 
