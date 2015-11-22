@@ -422,7 +422,7 @@ class WR_Megamenu_Init_Assets {
 		}
 
 		$base_path = WP_PLUGIN_DIR . "/{$plugin_name}";
-		$base_url  = WP_PLUGIN_URL . "/{$plugin_name}";
+		$base_url  = plugin_dir_url("/wr-megamenu/{$plugin_name}");
 
 		// Prepare assets path
 		foreach ( $assets AS $key => $value ) {
