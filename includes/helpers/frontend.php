@@ -25,7 +25,7 @@ class WR_Megamenu_Helpers_Frontend {
 			'container_id'    => '',
 			'menu_class'      => 'wr-mega-menu nav-menu',
 			'menu_id'         => 'wr-megamenu-menu-' . $args['menu_type'],
-			'menu'            => $args['menu_type'],
+			'menu'            => $args['profile_id'],
 			'fallback_cb'     => 'wp_page_menu',
 			'before'          => '',
 			'after'           => '',
